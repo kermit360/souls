@@ -1,0 +1,25 @@
+[remap]
+
+importer="Aseprite SpriteFrames Import"
+type="SpriteFrames"
+uid="uid://ba3x0hrnej1ls"
+path="res://.godot/imported/piramide.ase-8c6fec6c3bfe73d96f9843606dbf23d2.res"
+
+[deps]
+
+source_file="res://fondo/piramide.ase"
+dest_files=["res://.godot/imported/piramide.ase-8c6fec6c3bfe73d96f9843606dbf23d2.res"]
+
+[params]
+
+spritesheet/layout=0
+spritesheet/fixed_rows_count=1
+spritesheet/fixed_columns_count=1
+spritesheet/border_type=0
+spritesheet/trim=false
+spritesheet/ignore_empty=false
+spritesheet/merge_duplicates=false
+animation/default/name="default"
+animation/default/direction=0
+animation/default/repeat_count=0
+animation/autoplay=""

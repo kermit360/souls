@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://du7y735a8je62"]
+
+[ext_resource type="PackedScene" uid="uid://c70gvywd5gbh4" path="res://main_character/main.tscn" id="1_dyfxa"]
+[ext_resource type="Texture2D" uid="uid://dglieob87k0vh" path="res://fondo/piramide.png" id="1_letks"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfp27"]
+size = Vector2(0.569568, 1.31765)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6vsm"]
+size = Vector2(0.521394, 3.12811)
+
+[node name="escena1" type="Node2D"]
+
+[node name="Piramide" type="Sprite2D" parent="."]
+position = Vector2(508, 252)
+texture = ExtResource("1_letks")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(573.125, 338)
+scale = Vector2(1151.75, 42.5)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.21717, -8.58824)
+shape = SubResource("RectangleShape2D_yfp27")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.45941, -5.15294)
+scale = Vector2(0.0500737, 3.25863)
+shape = SubResource("RectangleShape2D_y6vsm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.221511, 0.0235295)
+shape = SubResource("RectangleShape2D_yfp27")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.0259388, -4.98823)
+scale = Vector2(0.0500737, 3.25863)
+shape = SubResource("RectangleShape2D_y6vsm")
+
+[node name="main_char" parent="." instance=ExtResource("1_dyfxa")]
+position = Vector2(72, 290)
