@@ -1,0 +1,12 @@
+res://escena1.tscn
+res://main_character/main.tscn
+res://main_character/guerrera_3.tscn
+res://main_character/guerrera_3_left.tscn
+res://jarron/jarron.tscn
+res://jarron/jarron.gd
+res://main_character/main.gd
+res://escena_1.gd
+res://objeto_atacable.gd
+res://jarron/objeto_atacable.tscn
+res://jarron/jarron_atacable.tscn
+res://jarron/jarron_atacable.gd

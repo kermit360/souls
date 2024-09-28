@@ -1,0 +1,12 @@
+CollisionShape2D
+StaticBody2D
+RayCast2D
+Node2D
+Area2D
+AnimationTree
+ParallaxLayer
+ParallaxBackground
+PointLight2D
+TextureRect
+Camera2D
+Sprite2D

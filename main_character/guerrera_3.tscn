@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://b2voo03spl80k"]
+[gd_scene load_steps=27 format=3 uid="uid://b2voo03spl80k"]
 
 [ext_resource type="PackedScene" uid="uid://b2sjbj63ki8cn" path="res://main_character/guerrera3.ase" id="1_kur0g"]
 
-[sub_resource type="Animation" id="Animation_lm156"]
-length = 0.45
+[sub_resource type="Animation" id="Animation_6ebbt"]
+length = 0.2
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -11,10 +12,10 @@ tracks/0/path = NodePath(".:offset")
 tracks/0/interp = 0
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(-5, 2), Vector2(-7, 1), Vector2(-9, 1), Vector2(-13, 1), Vector2(-6, 1), Vector2(2, 1), Vector2(11, 2), Vector2(19, 3)]
+"values": [Vector2(-1, 3)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -23,14 +24,15 @@ tracks/1/path = NodePath(".:region_rect")
 tracks/1/interp = 0
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Rect2i(237, 62, 59, 65), Rect2i(63, 0, 59, 67), Rect2i(122, 0, 59, 67), Rect2i(0, 63, 58, 66), Rect2i(300, 0, 58, 67), Rect2i(58, 67, 58, 66), Rect2i(116, 67, 58, 65), Rect2i(0, 0, 63, 63), Rect2i(237, 0, 63, 62)]
+"values": [Rect2i(0, 0, 62, 65), Rect2i(62, 0, 62, 65)]
 }
 
-[sub_resource type="Animation" id="Animation_wxr5e"]
-length = 0.3
+[sub_resource type="Animation" id="Animation_k8i7i"]
+length = 0.2
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -41,7 +43,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Vector2(6, 2), Vector2(-3, 2)]
+"values": [Vector2(-4, 4), Vector2(-5, 4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -50,13 +52,68 @@ tracks/1/path = NodePath(".:region_rect")
 tracks/1/interp = 0
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Rect2i(470, 0, 37, 65), Rect2i(461, 69, 51, 65), Rect2i(459, 134, 51, 65)]
+"values": [Rect2i(166, 132, 56, 65), Rect2i(54, 264, 54, 65)]
 }
 
-[sub_resource type="Animation" id="Animation_pax5e"]
+[sub_resource type="Animation" id="Animation_ca7f1"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 0
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-7, 1), Vector2(-13, 1), Vector2(-6, 1), Vector2(2, 1), Vector2(11, 2), Vector2(19, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:region_rect")
+tracks/1/interp = 0
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2i(187, 0, 59, 67), Rect2i(246, 62, 58, 66), Rect2i(309, 0, 58, 67), Rect2i(124, 63, 58, 66), Rect2i(182, 67, 58, 65), Rect2i(124, 0, 63, 63), Rect2i(246, 0, 63, 62)]
+}
+
+[sub_resource type="Animation" id="Animation_0n3kv"]
+length = 0.55
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 0
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-5, 2), Vector2(-6, 2), Vector2(-4, 3), Vector2(-4, 4), Vector2(-4, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:region_rect")
+tracks/1/interp = 0
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2i(423, 0, 59, 65), Rect2i(423, 65, 58, 65), Rect2i(273, 324, 53, 65), Rect2i(441, 325, 49, 63), Rect2i(48, 329, 48, 61), Rect2i(441, 325, 49, 63)]
+}
+
+[sub_resource type="Animation" id="Animation_8vu18"]
+length = 0.9
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -65,10 +122,10 @@ tracks/0/path = NodePath(".:offset")
 tracks/0/interp = 0
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Vector2(-3, 1), Vector2(-3, 0), Vector2(-3, 1)]
+"values": [Vector2(-3, 1), Vector2(-3, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -77,13 +134,68 @@ tracks/1/path = NodePath(".:region_rect")
 tracks/1/interp = 0
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Rect2i(281, 202, 54, 66), Rect2i(335, 204, 54, 66), Rect2i(396, 200, 54, 66), Rect2i(55, 199, 54, 67), Rect2i(296, 67, 54, 69), Rect2i(358, 0, 56, 69), Rect2i(181, 0, 56, 70), Rect2i(414, 0, 56, 69), Rect2i(350, 69, 54, 69), Rect2i(450, 200, 54, 66)]
+"values": [Rect2i(165, 262, 54, 66), Rect2i(387, 259, 54, 66), Rect2i(441, 259, 54, 66), Rect2i(111, 197, 54, 67), Rect2i(240, 128, 54, 68), Rect2i(0, 65, 56, 68), Rect2i(367, 0, 56, 69), Rect2i(56, 65, 56, 68), Rect2i(112, 129, 54, 68)]
 }
 
-[sub_resource type="Animation" id="Animation_so2gb"]
+[sub_resource type="Animation" id="Animation_mhqej"]
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 0
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(-4, 4), Vector2(-4, 3), Vector2(-4, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:region_rect")
+tracks/1/interp = 0
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2i(162, 328, 48, 61), Rect2i(210, 328, 48, 61), Rect2i(0, 328, 48, 62), Rect2i(460, 193, 51, 62), Rect2i(0, 328, 48, 62), Rect2i(210, 328, 48, 61)]
+}
+
+[sub_resource type="Animation" id="Animation_dy3e7"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 0
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-3, 1), Vector2(-4, 3), Vector2(-3, 5), Vector2(-3, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:region_rect")
+tracks/1/interp = 0
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Rect2i(219, 262, 54, 66), Rect2i(417, 130, 58, 63), Rect2i(384, 325, 57, 58), Rect2i(273, 262, 57, 62)]
+}
+
+[sub_resource type="Animation" id="Animation_j4bna"]
 length = 1.6
 loop_mode = 1
 tracks/0/type = "value"
@@ -93,10 +205,10 @@ tracks/0/path = NodePath(".:offset")
 tracks/0/interp = 0
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5, 0.8, 0.9, 1.1, 1.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5, 0.8, 0.9, 1.1, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(-5, 2), Vector2(-5, 1), Vector2(-4, 1), Vector2(-5, 1), Vector2(-6, 1), Vector2(-7, 1), Vector2(-7, 2), Vector2(-6, 1), Vector2(-5, 1)]
+"values": [Vector2(-5, 1), Vector2(-4, 1), Vector2(-5, 1), Vector2(-6, 1), Vector2(-7, 1), Vector2(-7, 2), Vector2(-6, 1), Vector2(-5, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -108,68 +220,116 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Rect2i(0, 260, 54, 65), Rect2i(166, 202, 54, 66), Rect2i(171, 136, 55, 66), Rect2i(286, 136, 55, 66), Rect2i(341, 138, 55, 66), Rect2i(116, 132, 55, 66), Rect2i(56, 133, 55, 66), Rect2i(404, 134, 55, 66), Rect2i(174, 70, 56, 66), Rect2i(0, 129, 56, 65), Rect2i(404, 69, 57, 65), Rect2i(226, 193, 55, 66), Rect2i(220, 259, 54, 66), Rect2i(0, 194, 55, 66), Rect2i(230, 127, 56, 66), Rect2i(111, 198, 55, 66)]
+"values": [Rect2i(330, 266, 54, 64), Rect2i(108, 264, 54, 65), Rect2i(0, 198, 55, 65), Rect2i(55, 199, 55, 65), Rect2i(277, 197, 55, 65), Rect2i(222, 196, 55, 66), Rect2i(405, 193, 55, 66), Rect2i(350, 135, 55, 66), Rect2i(361, 69, 56, 66), Rect2i(0, 133, 56, 65), Rect2i(304, 67, 57, 65), Rect2i(56, 133, 55, 66), Rect2i(0, 263, 54, 65), Rect2i(332, 201, 55, 65), Rect2i(294, 132, 56, 65), Rect2i(165, 197, 55, 65)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_uu5qb"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2swnt"]
 _data = {
-"ATACK": SubResource("Animation_lm156"),
-"DEFENSE": SubResource("Animation_wxr5e"),
-"IDLE": SubResource("Animation_pax5e"),
-"WALK": SubResource("Animation_so2gb")
+"AIR_DOWN": SubResource("Animation_6ebbt"),
+"AIR_UP": SubResource("Animation_k8i7i"),
+"ATACK": SubResource("Animation_ca7f1"),
+"DEFENSE": SubResource("Animation_0n3kv"),
+"IDLE": SubResource("Animation_8vu18"),
+"IDLE_DEF": SubResource("Animation_mhqej"),
+"JUMP": SubResource("Animation_dy3e7"),
+"WALK": SubResource("Animation_j4bna")
 }
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_pawaq"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6evcr"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fcxbd"]
 animation = &"ATACK"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gbu8h"]
+animation = &"DEFENSE"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ttlqx"]
+animation = &"AIR_DOWN"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2if38"]
 animation = &"IDLE"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cfppm"]
+animation = &"IDLE_DEF"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_702r0"]
+animation = &"JUMP"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2eac5"]
+animation = &"AIR_UP"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f53h0"]
 animation = &"WALK"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_u48me"]
 
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ffaiu"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_xo5hi"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_uysdg"]
+
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_pnfmo"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_30nre"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_mg4up"]
+graph_offset = Vector2(602.119, 220.163)
+nodes/AIR_DOWN/node = SubResource("AnimationNodeBlend2_pawaq")
+nodes/AIR_DOWN/position = Vector2(820.214, 221.22)
+nodes/AIR_UP/node = SubResource("AnimationNodeBlend2_6evcr")
+nodes/AIR_UP/position = Vector2(660, 140)
 nodes/ANIM_ATACK/node = SubResource("AnimationNodeAnimation_fcxbd")
-nodes/ANIM_ATACK/position = Vector2(520, 420)
+nodes/ANIM_ATACK/position = Vector2(1020, 480)
+nodes/ANIM_DEF/node = SubResource("AnimationNodeAnimation_gbu8h")
+nodes/ANIM_DEF/position = Vector2(1200, 520)
+nodes/ANIM_DOWN/node = SubResource("AnimationNodeAnimation_ttlqx")
+nodes/ANIM_DOWN/position = Vector2(660, 340)
 nodes/ANIM_IDLE/node = SubResource("AnimationNodeAnimation_2if38")
-nodes/ANIM_IDLE/position = Vector2(280, 60)
+nodes/ANIM_IDLE/position = Vector2(160, 60)
+nodes/ANIM_IDLE_DEF/node = SubResource("AnimationNodeAnimation_cfppm")
+nodes/ANIM_IDLE_DEF/position = Vector2(300, 280)
+nodes/ANIM_JUMP/node = SubResource("AnimationNodeAnimation_702r0")
+nodes/ANIM_JUMP/position = Vector2(840, 420)
+nodes/ANIM_UP/node = SubResource("AnimationNodeAnimation_2eac5")
+nodes/ANIM_UP/position = Vector2(500, 300)
 nodes/ANIM_WALK/node = SubResource("AnimationNodeAnimation_f53h0")
-nodes/ANIM_WALK/position = Vector2(300, 280)
+nodes/ANIM_WALK/position = Vector2(160, 220)
 nodes/ATACKING/node = SubResource("AnimationNodeOneShot_u48me")
-nodes/ATACKING/position = Vector2(940, 160)
+nodes/ATACKING/position = Vector2(1180, 300)
+nodes/DEFENDING/node = SubResource("AnimationNodeOneShot_ffaiu")
+nodes/DEFENDING/position = Vector2(1360, 360)
+nodes/IDLE_DEF/node = SubResource("AnimationNodeBlend2_xo5hi")
+nodes/IDLE_DEF/position = Vector2(480, 100)
+nodes/JUMPING/node = SubResource("AnimationNodeOneShot_uysdg")
+nodes/JUMPING/position = Vector2(1000, 260)
 nodes/WALKING/node = SubResource("AnimationNodeBlend2_pnfmo")
-nodes/WALKING/position = Vector2(580, 180)
-nodes/output/position = Vector2(1240, 360)
-node_connections = [&"ATACKING", 0, &"WALKING", &"ATACKING", 1, &"ANIM_ATACK", &"WALKING", 0, &"ANIM_IDLE", &"WALKING", 1, &"ANIM_WALK", &"output", 0, &"ATACKING"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcwdm"]
-size = Vector2(21, 7)
+nodes/WALKING/position = Vector2(300, 80)
+nodes/output/position = Vector2(1540, 400)
+node_connections = [&"AIR_DOWN", 0, &"AIR_UP", &"AIR_DOWN", 1, &"ANIM_DOWN", &"AIR_UP", 0, &"IDLE_DEF", &"AIR_UP", 1, &"ANIM_UP", &"ATACKING", 0, &"JUMPING", &"ATACKING", 1, &"ANIM_ATACK", &"DEFENDING", 0, &"ATACKING", &"DEFENDING", 1, &"ANIM_DEF", &"IDLE_DEF", 0, &"WALKING", &"IDLE_DEF", 1, &"ANIM_IDLE_DEF", &"JUMPING", 0, &"AIR_DOWN", &"JUMPING", 1, &"ANIM_JUMP", &"WALKING", 0, &"ANIM_IDLE", &"WALKING", 1, &"ANIM_WALK", &"output", 0, &"DEFENDING"]
 
 [node name="guerrera3" instance=ExtResource("1_kur0g")]
-offset = Vector2(-5, 2)
-region_rect = Rect2(237, 62, 59, 65)
+offset = Vector2(-3, 0)
+region_rect = Rect2(240, 128, 54, 68)
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_uu5qb")
+"": SubResource("AnimationLibrary_2swnt")
 }
-autoplay = "IDLE"
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="1"]
-tree_root = SubResource("AnimationNodeBlendTree_30nre")
+tree_root = SubResource("AnimationNodeBlendTree_mg4up")
 anim_player = NodePath("../AnimationPlayer")
+parameters/AIR_DOWN/blend_amount = 0
+parameters/AIR_UP/blend_amount = 0
 parameters/ATACKING/active = false
 parameters/ATACKING/internal_active = false
 parameters/ATACKING/request = 0
+parameters/DEFENDING/active = false
+parameters/DEFENDING/internal_active = false
+parameters/DEFENDING/request = 0
+parameters/IDLE_DEF/blend_amount = 0.0
+parameters/JUMPING/active = false
+parameters/JUMPING/internal_active = false
+parameters/JUMPING/request = 0
 parameters/WALKING/blend_amount = 0.0
-
-[node name="Area2D" type="Area2D" parent="." index="2"]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(14, 6)
-shape = SubResource("RectangleShape2D_fcwdm")

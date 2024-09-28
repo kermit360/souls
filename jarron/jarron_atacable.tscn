@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm12ymqfhhl7"]
+
+[ext_resource type="Script" path="res://jarron/jarron_atacable.gd" id="1_k05uy"]
+[ext_resource type="PackedScene" uid="uid://bygne37hbx8i" path="res://jarron/jarron.tscn" id="2_0qtcs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_af46y"]
+radius = 13.0
+
+[node name="Jarron_Atacable" type="StaticBody2D" groups=["Atacable"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_k05uy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_af46y")
+
+[node name="Jarron" parent="." instance=ExtResource("2_0qtcs")]

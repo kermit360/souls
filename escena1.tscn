@@ -1,41 +1,138 @@
-[gd_scene load_steps=5 format=3 uid="uid://du7y735a8je62"]
+[gd_scene load_steps=15 format=3 uid="uid://du7y735a8je62"]
 
 [ext_resource type="PackedScene" uid="uid://c70gvywd5gbh4" path="res://main_character/main.tscn" id="1_dyfxa"]
-[ext_resource type="Texture2D" uid="uid://dglieob87k0vh" path="res://fondo/piramide.png" id="1_letks"]
+[ext_resource type="Script" path="res://escena_1.gd" id="1_mbof3"]
+[ext_resource type="Texture2D" uid="uid://c7go4r08me1hw" path="res://fondo/nubes.png" id="2_wlmo2"]
+[ext_resource type="Texture2D" uid="uid://d0i7m1c2ilb7h" path="res://fondo/bosq.png" id="3_a4o4x"]
+[ext_resource type="Texture2D" uid="uid://c63sl8ywhjtmu" path="res://frente/tree_1.png" id="4_3df1x"]
+[ext_resource type="Texture2D" uid="uid://df1rcu3p6knla" path="res://frente/tree_2.png" id="5_bwkb7"]
+[ext_resource type="Texture2D" uid="uid://r2sf4kkoh620" path="res://frente/tree_3.png" id="6_d4wig"]
+[ext_resource type="Texture2D" uid="uid://dtbkufcpg65nq" path="res://frente/tree_4.png" id="7_8pcyg"]
+[ext_resource type="Texture2D" uid="uid://bniib1jmvvluw" path="res://frente/bush_1.png" id="8_8eons"]
+[ext_resource type="Texture2D" uid="uid://d2o3ahclkev7j" path="res://frente/bush_2.png" id="9_obrfk"]
+[ext_resource type="Texture2D" uid="uid://m34wp6yyvdop" path="res://frente/bush_3.png" id="10_pky2d"]
+[ext_resource type="PackedScene" uid="uid://bm12ymqfhhl7" path="res://jarron/jarron_atacable.tscn" id="12_8t572"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfp27"]
-size = Vector2(0.569568, 1.31765)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wnmui"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6vsm"]
-size = Vector2(0.521394, 3.12811)
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mcl4v"]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [node name="escena1" type="Node2D"]
-
-[node name="Piramide" type="Sprite2D" parent="."]
-position = Vector2(508, 252)
-texture = ExtResource("1_letks")
+script = ExtResource("1_mbof3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(573.125, 338)
-scale = Vector2(1151.75, 42.5)
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-0.21717, -8.58824)
-shape = SubResource("RectangleShape2D_yfp27")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-0.45941, -5.15294)
-scale = Vector2(0.0500737, 3.25863)
-shape = SubResource("RectangleShape2D_y6vsm")
+position = Vector2(0, 386)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-0.221511, 0.0235295)
-shape = SubResource("RectangleShape2D_yfp27")
+scale = Vector2(1e+08, 1)
+shape = SubResource("WorldBoundaryShape2D_wnmui")
+one_way_collision = true
+one_way_collision_margin = 15.9
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0.0259388, -4.98823)
-scale = Vector2(0.0500737, 3.25863)
-shape = SubResource("RectangleShape2D_y6vsm")
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(0, 100)
+scale = Vector2(2.195, 2.195)
+transform = Transform2D(2.195, 0, 0, 2.195, 0, 100)
+
+[node name="nubes" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-28.7016, -46.9248)
+motion_scale = Vector2(0.25, 0)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/nubes"]
+offset_right = 512.0
+offset_bottom = 144.0
+texture = ExtResource("2_wlmo2")
+stretch_mode = 1
+
+[node name="selva" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-2.73349, -47.836)
+motion_scale = Vector2(0.3, 0.04)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/selva"]
+material = SubResource("CanvasItemMaterial_mcl4v")
+offset_right = 456.22
+offset_bottom = 144.0
+texture = ExtResource("3_a4o4x")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="selva2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-42.369, -38.2688)
+motion_scale = Vector2(0.4, 0.08)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/selva2"]
+offset_right = 495.105
+offset_bottom = 144.0
+texture = ExtResource("3_a4o4x")
+stretch_mode = 1
+
+[node name="atacables" type="Node2D" parent="." groups=["brockeable"]]
+
+[node name="Jarron_Atacable2" parent="atacables" instance=ExtResource("12_8t572")]
+position = Vector2(187, 355)
+
+[node name="Jarron_Atacable" parent="atacables" instance=ExtResource("12_8t572")]
+position = Vector2(420, 354)
+
+[node name="Jarron_Atacable3" parent="atacables" instance=ExtResource("12_8t572")]
+position = Vector2(520, 361)
+
+[node name="Jarron_Atacable4" parent="atacables" instance=ExtResource("12_8t572")]
+position = Vector2(753, 360)
 
 [node name="main_char" parent="." instance=ExtResource("1_dyfxa")]
-position = Vector2(72, 290)
+position = Vector2(318, 370)
+
+[node name="luces" type="Node2D" parent="."]
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_scale = Vector2(0, 0)
+
+[node name="Tree1" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(9, 221)
+scale = Vector2(1.84792, 1.84792)
+texture = ExtResource("4_3df1x")
+
+[node name="Tree2" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(179, 243)
+scale = Vector2(1.86413, 1.86413)
+texture = ExtResource("5_bwkb7")
+
+[node name="Tree3" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(860, 107)
+scale = Vector2(3.01335, 2.97795)
+texture = ExtResource("6_d4wig")
+
+[node name="Tree4" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(473, 141)
+scale = Vector2(2.79095, 2.79095)
+texture = ExtResource("7_8pcyg")
+
+[node name="Bush1" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(92, 380)
+texture = ExtResource("8_8eons")
+
+[node name="Bush2" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(265, 378)
+texture = ExtResource("9_obrfk")
+
+[node name="Bush3" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(218, 380)
+texture = ExtResource("10_pky2d")
+
+[node name="Bush4" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(594, 381)
+texture = ExtResource("10_pky2d")
+
+[node name="Bush5" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(582, 381)
+texture = ExtResource("10_pky2d")
