@@ -274,7 +274,7 @@ animation = &"WALK"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_pnfmo"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_wdsud"]
-graph_offset = Vector2(604, 215)
+graph_offset = Vector2(0, 60.5434)
 nodes/AIR_DOWN/node = SubResource("AnimationNodeBlend2_pawaq")
 nodes/AIR_DOWN/position = Vector2(820.214, 221.22)
 nodes/AIR_UP/node = SubResource("AnimationNodeBlend2_6evcr")
@@ -309,8 +309,8 @@ nodes/output/position = Vector2(1540, 400)
 node_connections = [&"AIR_DOWN", 0, &"AIR_UP", &"AIR_DOWN", 1, &"ANIM_DOWN", &"AIR_UP", 0, &"IDLE_DEF", &"AIR_UP", 1, &"ANIM_UP", &"ATACKING", 0, &"JUMPING", &"ATACKING", 1, &"ANIM_ATACK", &"DEFENDING", 0, &"ATACKING", &"DEFENDING", 1, &"ANIM_DEF", &"IDLE_DEF", 0, &"WALKING", &"IDLE_DEF", 1, &"ANIM_IDLE_DEF", &"JUMPING", 0, &"AIR_DOWN", &"JUMPING", 1, &"ANIM_JUMP", &"WALKING", 0, &"ANIM_IDLE", &"WALKING", 1, &"ANIM_WALK", &"output", 0, &"DEFENDING"]
 
 [node name="guerrera3_left" instance=ExtResource("1_6rcka")]
-offset = Vector2(-6, 0)
-region_rect = Rect2(0, 258, 46, 68)
+offset = Vector2(-7, 0)
+region_rect = Rect2(157, 198, 47, 68)
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pwtkfbsd1080"
-path="res://.godot/imported/bosq.png-cb8a079eaac3864cb6c7d87ba7d6f192.ctex"
+uid="uid://ygl3esntnrd8"
+path="res://.godot/imported/tilemap.png-f63b070aa7889c8498f351d78647d95f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fondo/bosq.png"
-dest_files=["res://.godot/imported/bosq.png-cb8a079eaac3864cb6c7d87ba7d6f192.ctex"]
+source_file="res://tilemap/tilemap.png"
+dest_files=["res://.godot/imported/tilemap.png-f63b070aa7889c8498f351d78647d95f.ctex"]
 
 [params]
 

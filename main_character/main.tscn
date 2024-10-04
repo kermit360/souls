@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://main_character/main.gd" id="1_mue3s"]
 [ext_resource type="PackedScene" uid="uid://cq0eyhqum3d6l" path="res://main_character/guerrera_3_left.tscn" id="2_01jj5"]
-[ext_resource type="PackedScene" uid="uid://b2voo03spl80k" path="res://main_character/guerrera_3.tscn" id="2_g4gs8"]
+[ext_resource type="PackedScene" uid="uid://b2voo03spl80k" path="res://main_character/guerrera_3.tscn" id="3_xe76n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k5b7y"]
 height = 59.0
@@ -17,10 +17,8 @@ shape = SubResource("CapsuleShape2D_k5b7y")
 [node name="guerrera3_left" parent="." instance=ExtResource("2_01jj5")]
 visible = false
 position = Vector2(5, -22)
-
-[node name="guerrera3" parent="." instance=ExtResource("2_g4gs8")]
-position = Vector2(5, -22)
-region_rect = Rect2(56, 65, 56, 68)
+offset = Vector2(-6, 0)
+region_rect = Rect2(0, 258, 46, 68)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -100)
@@ -35,3 +33,7 @@ position = Vector2(0, -21)
 target_position = Vector2(51, 6)
 collision_mask = 2
 collide_with_areas = true
+
+[node name="guerrera3" parent="." instance=ExtResource("3_xe76n")]
+position = Vector2(7, -22)
+region_rect = Rect2(206, 68, 56, 68)
