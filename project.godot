@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 
 [aseprite_importers]
 
-aseprite_executable_path="C:/Users/rnmoo/Documents/LibreSprite-Windows-x86_64/libresprite.exe"
+aseprite_executable_path="D:\\Descargas\\LibreSprite-Windows-x86_64\\libresprite.exe"
 
 [display]
 

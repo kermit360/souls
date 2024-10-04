@@ -1,7 +1,3 @@
 res://escena1.tscn
 res://god-rays.gdshader
-res://jarron/jarron.tscn
-res://main_character/main.tscn
-res://jarron/jarron_atacable.tscn
-res://main_character/guerrera_3_left.tscn
-res://main_character/guerrera_3.tscn
+res://nahual/nahual.tscn
