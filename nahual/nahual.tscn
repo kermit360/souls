@@ -1,21 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://c10605lq0nr6p"]
+[gd_scene load_steps=12 format=3 uid="uid://c10605lq0nr6p"]
 
 [ext_resource type="PackedScene" uid="uid://dbx05krw8l42p" path="res://nahual/nahual.ase" id="1_td6k2"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m30re"]
+animation = &"Ataca"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_i1mid"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_puurn"]
 animation = &"Idle"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c0t7j"]
+animation = &"Salto"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_k4e26"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bt1da"]
+animation = &"Transforma"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_gp81a"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_32fot"]
+animation = &"Camina"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_5so1s"]
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_vom82"]
-graph_offset = Vector2(-166.811, 168.936)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_puurn")
-nodes/Animation/position = Vector2(100, 200)
-node_connections = [&"output", 0, &"Animation"]
+graph_offset = Vector2(-43.0797, 205.873)
+nodes/ATACK/node = SubResource("AnimationNodeAnimation_m30re")
+nodes/ATACK/position = Vector2(780, 700)
+nodes/ATACKING/node = SubResource("AnimationNodeBlend2_i1mid")
+nodes/ATACKING/position = Vector2(980, 440)
+nodes/IDLE/node = SubResource("AnimationNodeAnimation_puurn")
+nodes/IDLE/position = Vector2(100, 200)
+nodes/JUMP/node = SubResource("AnimationNodeAnimation_c0t7j")
+nodes/JUMP/position = Vector2(360, 500)
+nodes/JUMPING/node = SubResource("AnimationNodeBlend2_k4e26")
+nodes/JUMPING/position = Vector2(560, 340)
+nodes/TRANSFORM/node = SubResource("AnimationNodeAnimation_bt1da")
+nodes/TRANSFORM/position = Vector2(540, 620)
+nodes/TRANSFORMING/node = SubResource("AnimationNodeBlend2_gp81a")
+nodes/TRANSFORMING/position = Vector2(780, 460)
+nodes/WALK/node = SubResource("AnimationNodeAnimation_32fot")
+nodes/WALK/position = Vector2(100, 380)
+nodes/WALKING/node = SubResource("AnimationNodeBlend2_5so1s")
+nodes/WALKING/position = Vector2(360, 260)
+nodes/output/position = Vector2(1200, 500)
+node_connections = [&"ATACKING", 0, &"TRANSFORMING", &"ATACKING", 1, &"ATACK", &"JUMPING", 0, &"WALKING", &"JUMPING", 1, &"JUMP", &"TRANSFORMING", 0, &"JUMPING", &"TRANSFORMING", 1, &"TRANSFORM", &"WALKING", 0, &"IDLE", &"WALKING", 1, &"WALK", &"output", 0, &"ATACKING"]
 
 [node name="nahual" instance=ExtResource("1_td6k2")]
+scale = Vector2(5.21501, 5.03754)
 offset = Vector2(0, 1)
-region_rect = Rect2(354, 120, 58, 58)
+region_rect = Rect2(0, 121, 58, 58)
 
 [node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer" index="0"]
 root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeBlendTree_vom82")
 anim_player = NodePath("..")
+parameters/ATACKING/blend_amount = 0
+parameters/JUMPING/blend_amount = 0
+parameters/TRANSFORMING/blend_amount = 0
+parameters/WALKING/blend_amount = 0

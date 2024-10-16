@@ -1,9 +1,8 @@
 f2ca747bc66a24bbdfe24890ad44a30a
-::res://::1728038440
+::res://::1729113840
 escena1.tscn::PackedScene::8630614882243610529::1728038386::0::1::::<><>::uid://c70gvywd5gbh4::::res://main_character/main.tscn<>res://escena_1.gd<>uid://c7go4r08me1hw::::res://fondo/nubes.png<>uid://pwtkfbsd1080::::res://fondo/bosq.png<>uid://c63sl8ywhjtmu::::res://frente/tree_1.png<>uid://df1rcu3p6knla::::res://frente/tree_2.png<>uid://r2sf4kkoh620::::res://frente/tree_3.png<>uid://dtbkufcpg65nq::::res://frente/tree_4.png<>uid://bniib1jmvvluw::::res://frente/bush_1.png<>uid://d2o3ahclkev7j::::res://frente/bush_2.png<>uid://m34wp6yyvdop::::res://frente/bush_3.png<>uid://bm12ymqfhhl7::::res://jarron/jarron_atacable.tscn<>uid://ygl3esntnrd8::::res://tilemap/tilemap.png
 escena_1.gd::GDScript::-1::1728038129::0::1::::<>Node2D<>::
-god-rays.gdshader::Shader::-1::1728038734::0::1::::<><>::
-nahual.tscn::PackedScene::6651289210904181033::1728038734::0::1::::<><>::uid://dbx05krw8l42p::::res://nahual/nahual.ase
+god-rays.gdshader::Shader::-1::1728064798::0::1::::<><>::
 ::res://addons/::1728038156
 guerrera3.ase::CompressedTexture2D::7420886115066885049::1728038129::1728038156::0::::<><>::
 guerrera3.ase1.png::CompressedTexture2D::7899853494766374645::1728038129::1728038156::1::::<><>::
@@ -163,8 +162,9 @@ guerrera_3.tscn::PackedScene::4325747790945261032::1728038129::0::1::::<><>::uid
 guerrera_3_left.tscn::PackedScene::5947758429777169237::1728038129::0::1::::<><>::uid://dbopi0qvwip3x::::res://main_character/guerrera3_left.ase
 main.gd::GDScript::-1::1728038129::0::1::::<>CharacterBody2D<>::
 main.tscn::PackedScene::7070896906006068607::1728038129::0::1::::<><>::res://main_character/main.gd<>uid://cq0eyhqum3d6l::::res://main_character/guerrera_3_left.tscn<>uid://b2voo03spl80k::::res://main_character/guerrera_3.tscn
-::res://nahual/::1728038467
+::res://nahual/::1728064797
 nahual.ase::PackedScene::7278503634236340609::1728038466::1728038497::1::::<><>::uid://cqwbep6d8o4qv::::res://nahual/nahual.png
 nahual.png::CompressedTexture2D::5941347872272600137::1728038496::1728038497::1::::<><>::
+nahual.tscn::PackedScene::6651289210904181033::1728064797::0::1::::<><>::uid://dbx05krw8l42p::::res://nahual/nahual.ase
 ::res://tilemap/::1728038155
 tilemap.png::CompressedTexture2D::1697636641503365763::1728038129::1728038155::1::::<><>::
