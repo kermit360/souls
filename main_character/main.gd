@@ -20,11 +20,14 @@ var JUMP_VELOCITY : float = -400.0
 
 # Logica Ataques
 var objeto_Atacado = null
-var current_Ataque = 0
 
 #Logica Vida
 var vida : float = 10.0
 var ultimo_Ataque_Left = true
+enum {
+	vivo, moribundo, muerto
+}
+var current_Live_State = vivo
 
 
 func _ready() -> void:
@@ -32,12 +35,7 @@ func _ready() -> void:
 
 func _process(_delta):
 	Animation_Handler()
-	if vida <= 0.0:
-		if ultimo_Ataque_Left:
-			anim_tree["parameters/DEAD/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
-		else:
-			anim_tree["parameters/DEAD2/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
-
+	Dead_Handler()
 
 
 
@@ -54,12 +52,10 @@ func _physics_process(delta: float) -> void:
 
 	#ataque
 	if Input.is_action_just_pressed("atack"):
-		if current_Ataque == 0:
+		if is_on_floor():
 			anim_tree["parameters/ATACK/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
-			current_Ataque = 1
 		else:
 			anim_tree["parameters/ATTACK2/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
-			current_Ataque = 0
 
 		if spear.is_colliding():
 			objeto_Atacado = spear.get_collider()
@@ -67,7 +63,7 @@ func _physics_process(delta: float) -> void:
 				objeto_Atacado.set_Atacado(true)
 
 	#defensa
-	if Input.is_action_just_pressed("defend"):
+	if Input.is_action_just_pressed("defend") and not CROUCHED:
 		anim_tree["parameters/DEFENSE/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 
 	#desplazamento
@@ -76,7 +72,6 @@ func _physics_process(delta: float) -> void:
 	# crouch
 	if Input.is_action_just_pressed("crouch"):
 		anim_tree["parameters/CROUCH/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
-	
 	if Input.is_action_pressed("crouch"):
 		CROUCHED = true
 		SPEED = 150
@@ -88,7 +83,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("dash"):
 		anim_tree["parameters/DASH/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 	
-	if direction != 0:
+	if direction != 0 and current_Live_State != muerto:
 		velocity.x = direction * SPEED
 		if direction < 0:
 			anim_tree = anim_treeL
@@ -108,7 +103,7 @@ func _physics_process(delta: float) -> void:
 			current_animation = RUN
 		else:
 			current_animation = IDLE
-			if Input.is_action_pressed("defend"):
+			if Input.is_action_pressed("defend") and not CROUCHED:
 				current_animation = IDLE_DEF
 	#aire
 	else:
@@ -126,56 +121,70 @@ func _input(event: InputEvent) -> void:
 		get_tree().quit()
 
 func Animation_Handler():
-	match current_animation:
-		IDLE:
-			if CROUCHED == false:
-				anim_tree["parameters/IDLE_DEF/blend_amount"] = 0
+	if current_Live_State == vivo:
+		match current_animation:
+			IDLE:
+				if CROUCHED == false:
+					anim_tree["parameters/IDLE_DEF/blend_amount"] = 0
+					anim_tree["parameters/CROUCH_IDLE/blend_amount"] = 0
+					anim_tree["parameters/RUN/blend_amount"] = 0
+					anim_tree["parameters/CROUCH_MOVE/blend_amount"] = 0
+					anim_tree["parameters/AIR_UP/blend_amount"] = 0
+					anim_tree["parameters/AIR_DOWN/blend_amount"] = 0
+				else:
+					anim_tree["parameters/IDLE_DEF/blend_amount"] = 0
+					anim_tree["parameters/CROUCH_IDLE/blend_amount"] = 1
+					anim_tree["parameters/RUN/blend_amount"] = 0
+					anim_tree["parameters/CROUCH_MOVE/blend_amount"] = 0
+					anim_tree["parameters/AIR_UP/blend_amount"] = 0
+					anim_tree["parameters/AIR_DOWN/blend_amount"] = 0
+			IDLE_DEF:
+				anim_tree["parameters/IDLE_DEF/blend_amount"] = 1
 				anim_tree["parameters/CROUCH_IDLE/blend_amount"] = 0
 				anim_tree["parameters/RUN/blend_amount"] = 0
 				anim_tree["parameters/CROUCH_MOVE/blend_amount"] = 0
 				anim_tree["parameters/AIR_UP/blend_amount"] = 0
 				anim_tree["parameters/AIR_DOWN/blend_amount"] = 0
-			else:
-				anim_tree["parameters/IDLE_DEF/blend_amount"] = 0
-				anim_tree["parameters/CROUCH_IDLE/blend_amount"] = 1
-				anim_tree["parameters/RUN/blend_amount"] = 0
-				anim_tree["parameters/CROUCH_MOVE/blend_amount"] = 0
-				anim_tree["parameters/AIR_UP/blend_amount"] = 0
-				anim_tree["parameters/AIR_DOWN/blend_amount"] = 0
-		IDLE_DEF:
-			anim_tree["parameters/IDLE_DEF/blend_amount"] = 1
-			anim_tree["parameters/CROUCH_IDLE/blend_amount"] = 0
-			anim_tree["parameters/RUN/blend_amount"] = 0
-			anim_tree["parameters/CROUCH_MOVE/blend_amount"] = 0
-			anim_tree["parameters/AIR_UP/blend_amount"] = 0
-			anim_tree["parameters/AIR_DOWN/blend_amount"] = 0
-		RUN:
-			if CROUCHED == false:
-				anim_tree["parameters/IDLE_DEF/blend_amount"] = 0
-				anim_tree["parameters/CROUCH_IDLE/blend_amount"] = 0
-				anim_tree["parameters/RUN/blend_amount"] = 1
-				anim_tree["parameters/CROUCH_MOVE/blend_amount"] = 0
-				anim_tree["parameters/AIR_UP/blend_amount"] = 0
-				anim_tree["parameters/AIR_DOWN/blend_amount"] = 0
-			else:
+			RUN:
+				if CROUCHED == false:
+					anim_tree["parameters/IDLE_DEF/blend_amount"] = 0
+					anim_tree["parameters/CROUCH_IDLE/blend_amount"] = 0
+					anim_tree["parameters/RUN/blend_amount"] = 1
+					anim_tree["parameters/CROUCH_MOVE/blend_amount"] = 0
+					anim_tree["parameters/AIR_UP/blend_amount"] = 0
+					anim_tree["parameters/AIR_DOWN/blend_amount"] = 0
+				else:
+					anim_tree["parameters/IDLE_DEF/blend_amount"] = 0
+					anim_tree["parameters/CROUCH_IDLE/blend_amount"] = 0
+					anim_tree["parameters/RUN/blend_amount"] = 0
+					anim_tree["parameters/CROUCH_MOVE/blend_amount"] = 1
+					anim_tree["parameters/AIR_UP/blend_amount"] = 0
+					anim_tree["parameters/AIR_DOWN/blend_amount"] = 0
+			ANIM_UP:
 				anim_tree["parameters/IDLE_DEF/blend_amount"] = 0
 				anim_tree["parameters/CROUCH_IDLE/blend_amount"] = 0
 				anim_tree["parameters/RUN/blend_amount"] = 0
-				anim_tree["parameters/CROUCH_MOVE/blend_amount"] = 1
-				anim_tree["parameters/AIR_UP/blend_amount"] = 0
+				anim_tree["parameters/CROUCH_MOVE/blend_amount"] = 0
+				anim_tree["parameters/AIR_UP/blend_amount"] = 1
 				anim_tree["parameters/AIR_DOWN/blend_amount"] = 0
-		ANIM_UP:
-			anim_tree["parameters/IDLE_DEF/blend_amount"] = 0
-			anim_tree["parameters/CROUCH_IDLE/blend_amount"] = 0
-			anim_tree["parameters/RUN/blend_amount"] = 0
-			anim_tree["parameters/CROUCH_MOVE/blend_amount"] = 0
-			anim_tree["parameters/AIR_UP/blend_amount"] = 1
-			anim_tree["parameters/AIR_DOWN/blend_amount"] = 0
-		ANIM_DOWN:
-			anim_tree["parameters/IDLE_DEF/blend_amount"] = 0
-			anim_tree["parameters/CROUCH_IDLE/blend_amount"] = 0
-			anim_tree["parameters/RUN/blend_amount"] = 0
-			anim_tree["parameters/CROUCH_MOVE/blend_amount"] = 0
-			anim_tree["parameters/AIR_UP/blend_amount"] = 0
-			anim_tree["parameters/AIR_DOWN/blend_amount"] = 1
-			
+			ANIM_DOWN:
+				anim_tree["parameters/IDLE_DEF/blend_amount"] = 0
+				anim_tree["parameters/CROUCH_IDLE/blend_amount"] = 0
+				anim_tree["parameters/RUN/blend_amount"] = 0
+				anim_tree["parameters/CROUCH_MOVE/blend_amount"] = 0
+				anim_tree["parameters/AIR_UP/blend_amount"] = 0
+				anim_tree["parameters/AIR_DOWN/blend_amount"] = 1
+
+func Dead_Handler():
+	if vida > 5.0:
+		current_Live_State = vivo
+	elif 0 < vida and vida <= 5.0:
+		current_Live_State = moribundo
+	elif vida <= 0.0:
+		current_Live_State = muerto
+		SPEED = 0
+		JUMP_VELOCITY = 0
+		if ultimo_Ataque_Left:
+			anim_tree["parameters/DEAD/blend_amount"] = -1
+		else:
+			anim_tree["parameters/DEAD/blend_amount"] = 1

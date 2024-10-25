@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c218jr2u5yah"]
+[gd_scene load_steps=33 format=3 uid="uid://c218jr2u5yah"]
 
 [ext_resource type="PackedScene" uid="uid://lo1pbxiypbi8" path="res://main_character/guerrero_2L.ase" id="1_3v1v8"]
 
@@ -29,6 +29,9 @@ animation = &"dash"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_36rw5"]
 animation = &"DEAD"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gxgn2"]
+animation = &"DEAD_2"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gbu8h"]
 animation = &"DEFENSE"
@@ -65,12 +68,7 @@ animation = &"AIR_UP"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_yoghh"]
 
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_l2tt3"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gxgn2"]
-animation = &"DEAD_2"
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_6jabp"]
+[sub_resource type="AnimationNodeBlend3" id="AnimationNodeBlend3_fenas"]
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ffaiu"]
 
@@ -80,8 +78,8 @@ animation = &"DEAD_2"
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_dr6lr"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_mq6e7"]
-graph_offset = Vector2(-383.244, -370.112)
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_4jkfh"]
+graph_offset = Vector2(1698.72, -240.045)
 nodes/AIR_DOWN/node = SubResource("AnimationNodeBlend2_pawaq")
 nodes/AIR_DOWN/position = Vector2(1180, -340)
 nodes/AIR_UP/node = SubResource("AnimationNodeBlend2_6evcr")
@@ -101,7 +99,9 @@ nodes/ANIM_CROUCH_MOVE/position = Vector2(180, 640)
 nodes/ANIM_DASH/node = SubResource("AnimationNodeAnimation_b82lq")
 nodes/ANIM_DASH/position = Vector2(1000, 420)
 nodes/ANIM_DEAD/node = SubResource("AnimationNodeAnimation_36rw5")
-nodes/ANIM_DEAD/position = Vector2(2300, 980)
+nodes/ANIM_DEAD/position = Vector2(2400, -100)
+nodes/ANIM_DEAD_2/node = SubResource("AnimationNodeAnimation_gxgn2")
+nodes/ANIM_DEAD_2/position = Vector2(2380, 220)
 nodes/ANIM_DEFENSE/node = SubResource("AnimationNodeAnimation_gbu8h")
 nodes/ANIM_DEFENSE/position = Vector2(1720, 760)
 nodes/ANIM_DOWN/node = SubResource("AnimationNodeAnimation_ttlqx")
@@ -130,12 +130,8 @@ nodes/CROUCH_MOVE/node = SubResource("AnimationNodeBlend2_bfedx")
 nodes/CROUCH_MOVE/position = Vector2(460, 500)
 nodes/DASH/node = SubResource("AnimationNodeOneShot_yoghh")
 nodes/DASH/position = Vector2(1180, 200)
-nodes/DEAD/node = SubResource("AnimationNodeOneShot_l2tt3")
-nodes/DEAD/position = Vector2(2480, 760)
-nodes/DEAD2/node = SubResource("AnimationNodeOneShot_6jabp")
-nodes/DEAD2/position = Vector2(2660, 880)
-"nodes/DEAD2 2/node" = SubResource("AnimationNodeAnimation_gxgn2")
-"nodes/DEAD2 2/position" = Vector2(2480, 1040)
+nodes/DEAD/node = SubResource("AnimationNodeBlend3_fenas")
+nodes/DEAD/position = Vector2(2580, 20)
 nodes/DEFENSE/node = SubResource("AnimationNodeOneShot_ffaiu")
 nodes/DEFENSE/position = Vector2(1920, 560)
 nodes/IDLE_DEF/node = SubResource("AnimationNodeBlend2_xo5hi")
@@ -144,15 +140,15 @@ nodes/JUMP/node = SubResource("AnimationNodeOneShot_uysdg")
 nodes/JUMP/position = Vector2(1380, 320)
 nodes/RUN/node = SubResource("AnimationNodeBlend2_dr6lr")
 nodes/RUN/position = Vector2(260, 380)
-nodes/output/position = Vector2(2880, 200)
-node_connections = [&"AIR_DOWN", 0, &"AIR_UP", &"AIR_DOWN", 1, &"ANIM_DOWN", &"AIR_UP", 0, &"CROUCH_MOVE", &"AIR_UP", 1, &"ANIM_UP", &"ATACK", 0, &"JUMP", &"ATACK", 1, &"ANIM_ATACK", &"ATTACK2", 0, &"ATACK", &"ATTACK2", 1, &"ANIM_ATTACK2", &"CARACOLA", 0, &"DEFENSE", &"CARACOLA", 1, &"ANIM_CARACOLA", &"CROUCH", 0, &"CARACOLA", &"CROUCH", 1, &"ANIM_CROUCH", &"CROUCH_IDLE", 0, &"IDLE_DEF", &"CROUCH_IDLE", 1, &"ANIM_CROUCH_IDLE", &"CROUCH_MOVE", 0, &"RUN", &"CROUCH_MOVE", 1, &"ANIM_CROUCH_MOVE", &"DASH", 0, &"AIR_DOWN", &"DASH", 1, &"ANIM_DASH", &"DEAD", 0, &"CROUCH", &"DEAD", 1, &"ANIM_DEAD", &"DEAD2", 0, &"DEAD", &"DEAD2", 1, &"DEAD2 2", &"DEFENSE", 0, &"ATTACK2", &"DEFENSE", 1, &"ANIM_DEFENSE", &"IDLE_DEF", 0, &"ANIM_IDLE", &"IDLE_DEF", 1, &"ANIM_IDLE_DEF", &"JUMP", 0, &"DASH", &"JUMP", 1, &"ANIM_JUMP", &"RUN", 0, &"CROUCH_IDLE", &"RUN", 1, &"ANIM_RUN", &"output", 0, &"DEAD2"]
+nodes/output/position = Vector2(2760, 80)
+node_connections = [&"AIR_DOWN", 0, &"AIR_UP", &"AIR_DOWN", 1, &"ANIM_DOWN", &"AIR_UP", 0, &"CROUCH_MOVE", &"AIR_UP", 1, &"ANIM_UP", &"ATACK", 0, &"JUMP", &"ATACK", 1, &"ANIM_ATACK", &"ATTACK2", 0, &"ATACK", &"ATTACK2", 1, &"ANIM_ATTACK2", &"CARACOLA", 0, &"DEFENSE", &"CARACOLA", 1, &"ANIM_CARACOLA", &"CROUCH", 0, &"CARACOLA", &"CROUCH", 1, &"ANIM_CROUCH", &"CROUCH_IDLE", 0, &"IDLE_DEF", &"CROUCH_IDLE", 1, &"ANIM_CROUCH_IDLE", &"CROUCH_MOVE", 0, &"RUN", &"CROUCH_MOVE", 1, &"ANIM_CROUCH_MOVE", &"DASH", 0, &"AIR_DOWN", &"DASH", 1, &"ANIM_DASH", &"DEAD", 0, &"ANIM_DEAD", &"DEAD", 1, &"CROUCH", &"DEAD", 2, &"ANIM_DEAD_2", &"DEFENSE", 0, &"ATTACK2", &"DEFENSE", 1, &"ANIM_DEFENSE", &"IDLE_DEF", 0, &"ANIM_IDLE", &"IDLE_DEF", 1, &"ANIM_IDLE_DEF", &"JUMP", 0, &"DASH", &"JUMP", 1, &"ANIM_JUMP", &"RUN", 0, &"CROUCH_IDLE", &"RUN", 1, &"ANIM_RUN", &"output", 0, &"DEAD"]
 
 [node name="guerrero_2L" instance=ExtResource("1_3v1v8")]
-offset = Vector2(3, 1)
-region_rect = Rect2(103, 196, 47, 67)
+offset = Vector2(5, 2)
+region_rect = Rect2(683, 0, 58, 73)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="1"]
-tree_root = SubResource("AnimationNodeBlendTree_mq6e7")
+tree_root = SubResource("AnimationNodeBlendTree_4jkfh")
 anim_player = NodePath("../AnimationPlayer")
 parameters/AIR_DOWN/blend_amount = 0.0
 parameters/AIR_UP/blend_amount = 0
@@ -173,12 +169,7 @@ parameters/CROUCH_MOVE/blend_amount = 0
 parameters/DASH/active = false
 parameters/DASH/internal_active = false
 parameters/DASH/request = 0
-parameters/DEAD/active = false
-parameters/DEAD/internal_active = false
-parameters/DEAD/request = 0
-parameters/DEAD2/active = false
-parameters/DEAD2/internal_active = false
-parameters/DEAD2/request = 0
+parameters/DEAD/blend_amount = 0
 parameters/DEFENSE/active = false
 parameters/DEFENSE/internal_active = false
 parameters/DEFENSE/request = 0
