@@ -1,5 +1,7 @@
-res://escena1.tscn
+res://main_character/main.gd
 res://god-rays.gdshader
-res://nahual/nahual.tscn
-res://main_character/guerrera_3_left.tscn
+res://main_character/main.tscn
+res://escena1.tscn
+res://main_character/guerrero_2.tscn
 res://main_character/guerrera_3.tscn
+res://main_character/guerrero_2l.tscn

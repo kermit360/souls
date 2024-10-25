@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://du7y735a8je62"]
+[gd_scene load_steps=16 format=4 uid="uid://du7y735a8je62"]
 
 [ext_resource type="PackedScene" uid="uid://c70gvywd5gbh4" path="res://main_character/main.tscn" id="1_dyfxa"]
 [ext_resource type="Script" path="res://escena_1.gd" id="1_mbof3"]
@@ -13,9 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://m34wp6yyvdop" path="res://frente/bush_3.png" id="10_pky2d"]
 [ext_resource type="PackedScene" uid="uid://bm12ymqfhhl7" path="res://jarron/jarron_atacable.tscn" id="12_8t572"]
 [ext_resource type="Texture2D" uid="uid://ygl3esntnrd8" path="res://tilemap/tilemap.png" id="13_0owpt"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q6hw8"]
-blend_mode = 3
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n1bpv"]
 texture = ExtResource("13_0owpt")
@@ -103,7 +100,6 @@ position = Vector2(-4.55581, -40.5467)
 motion_scale = Vector2(0.3, 0.04)
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/selva"]
-material = SubResource("CanvasItemMaterial_q6hw8")
 offset_right = 1000.0
 offset_bottom = 144.0
 texture = ExtResource("3_a4o4x")
@@ -121,12 +117,13 @@ texture = ExtResource("3_a4o4x")
 stretch_mode = 1
 
 [node name="atacables" type="Node2D" parent="." groups=["brockeable"]]
+position = Vector2(0, -8)
 
 [node name="Jarron_Atacable2" parent="atacables" instance=ExtResource("12_8t572")]
 position = Vector2(187, 355)
 
 [node name="Jarron_Atacable" parent="atacables" instance=ExtResource("12_8t572")]
-position = Vector2(420, 354)
+position = Vector2(420, 360)
 
 [node name="Jarron_Atacable3" parent="atacables" instance=ExtResource("12_8t572")]
 position = Vector2(520, 361)
@@ -135,7 +132,7 @@ position = Vector2(520, 361)
 position = Vector2(753, 360)
 
 [node name="main_char" parent="." instance=ExtResource("1_dyfxa")]
-position = Vector2(318, 356)
+position = Vector2(318, 334)
 
 [node name="luces" type="Node2D" parent="."]
 
@@ -147,12 +144,12 @@ follow_viewport_enabled = true
 motion_scale = Vector2(0, 0.001)
 
 [node name="Tree1" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
-position = Vector2(7.396, 213.795)
+position = Vector2(7, 241)
 scale = Vector2(1.84792, 1.84792)
 texture = ExtResource("4_3df1x")
 
 [node name="Tree2" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
-position = Vector2(179.396, 227.795)
+position = Vector2(182, 245)
 scale = Vector2(1.86413, 1.86413)
 texture = ExtResource("5_bwkb7")
 
@@ -167,17 +164,17 @@ scale = Vector2(2.79095, 2.79095)
 texture = ExtResource("7_8pcyg")
 
 [node name="Bush1" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
-position = Vector2(89.5676, 366.795)
+position = Vector2(95, 385)
 scale = Vector2(2.25858, 2.25858)
 texture = ExtResource("8_8eons")
 
 [node name="Bush2" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
-position = Vector2(262.568, 364.795)
+position = Vector2(263, 382)
 scale = Vector2(2.70462, 2.70462)
 texture = ExtResource("9_obrfk")
 
 [node name="Bush3" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
-position = Vector2(215.568, 366.795)
+position = Vector2(219, 383)
 scale = Vector2(2.70739, 2.70739)
 texture = ExtResource("10_pky2d")
 
@@ -220,5 +217,3 @@ texture = ExtResource("9_obrfk")
 position = Vector2(4, -21)
 tile_map_data = PackedByteArray("AAARABgAAAACAAAAAAASABgAAAACAAAAAAATABgAAAACAAAAAAAUABgAAAACAAAAAAAVABgAAAACAAAAAAAWABgAAAACAAAAAAAXABgAAAACAAAAAAAEABkAAAAHAAIAAAAFABkAAAAHAAIAAAAGABkAAAAHAAIAAAAHABkAAAAHAAIAAAAIABkAAAAHAAIAAAAJABkAAAAHAAIAAAAKABkAAAAHAAIAAAALABkAAAAHAAIAAAAMABkAAAAHAAIAAAANABkAAAAHAAIAAAAOABkAAAAHAAIAAAAPABkAAAAHAAIAAAAQABkAAAAHAAIAAAARABkAAAAHAAIAAAASABkAAAAHAAIAAAATABkAAAAHAAIAAAAUABkAAAAHAAIAAAAVABkAAAAHAAIAAAAWABkAAAAHAAIAAAAXABkAAAAHAAIAAAAYABkAAAAHAAIAAAAZABkAAAAHAAIAAAAaABkAAAAHAAIAAAAbABkAAAAHAAIAAAAcABkAAAAHAAIAAAAdABkAAAAHAAIAAAAeABkAAAAHAAIAAAAfABkAAAAHAAIAAAAgABkAAAAHAAIAAAAhABkAAAAHAAIAAAAiABkAAAAHAAIAAAAjABkAAAAHAAIAAAAkABkAAAAHAAIAAAAlABkAAAAHAAIAAAAmABkAAAAHAAIAAAAEABgAAAACAAAAAAAFABgAAAACAAAAAAAGABgAAAACAAAAAAAHABgAAAACAAAAAAAIABgAAAACAAAAAAAJABgAAAACAAAAAAAKABgAAAACAAAAAAALABgAAAACAAAAAAAMABgAAAACAAAAAAANABgAAAACAAAAAAAOABgAAAACAAAAAAAPABgAAAACAAAAAAAQABgAAAACAAAAAAAYABgAAAACAAAAAAAZABgAAAACAAAAAAAaABgAAAACAAAAAAAbABgAAAACAAAAAAAcABgAAAACAAAAAAAdABgAAAACAAAAAAAeABgAAAACAAAAAAAfABgAAAACAAAAAAAgABgAAAACAAAAAAAhABgAAAABAAMAAAAiABgAAAABAAMAAAAjABgAAAABAAMAAAAkABgAAAAEAAcAAAAlABgAAAAFAAcAAAAmABgAAAAHAAAAAAAnABgAAAACAAUAAAAoABgAAAADAAUAAAApABkAAAAEAAcAAAAoABkAAAAHAAIAAAAnABkAAAAHAAIAAAA=")
 tile_set = SubResource("TileSet_f8ftq")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]

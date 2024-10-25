@@ -46,7 +46,7 @@ animation = &"RUN"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_pnfmo"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_f0cc3"]
-graph_offset = Vector2(-34.5738, 118.73)
+graph_offset = Vector2(53.3057, 17.4331)
 nodes/AIR_DOWN/node = SubResource("AnimationNodeBlend2_pawaq")
 nodes/AIR_DOWN/position = Vector2(820.214, 221.22)
 nodes/AIR_UP/node = SubResource("AnimationNodeBlend2_6evcr")
@@ -85,8 +85,8 @@ nodes/output/position = Vector2(1540, 400)
 node_connections = [&"AIR_DOWN", 0, &"AIR_UP", &"AIR_DOWN", 1, &"ANIM_DOWN", &"AIR_UP", 0, &"IDLE_DEF", &"AIR_UP", 1, &"ANIM_UP", &"ATACKING", 0, &"JUMPING", &"ATACKING", 1, &"ANIM_ATACK", &"DEFENDING", 0, &"ATACKING", &"DEFENDING", 1, &"ANIM_DEF", &"IDLE_DEF", 0, &"RUNING", &"IDLE_DEF", 1, &"ANIM_IDLE_DEF", &"JUMPING", 0, &"AIR_DOWN", &"JUMPING", 1, &"ANIM_JUMP", &"RUNING", 0, &"WALKING", &"RUNING", 1, &"Animation", &"WALKING", 0, &"ANIM_IDLE", &"WALKING", 1, &"ANIM_WALK", &"output", 0, &"DEFENDING"]
 
 [node name="guerrera3" instance=ExtResource("1_kur0g")]
-offset = Vector2(-3, 0)
-region_rect = Rect2(745, 67, 56, 68)
+offset = Vector2(-3, 1)
+region_rect = Rect2(571, 203, 54, 66)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="1"]
 tree_root = SubResource("AnimationNodeBlendTree_f0cc3")

@@ -1,0 +1,189 @@
+[gd_scene load_steps=34 format=3 uid="uid://bfquvl3mf1i4n"]
+
+[ext_resource type="PackedScene" uid="uid://dnwcw2urt1b7u" path="res://main_character/guerrero_2.ase" id="1_v3u5p"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_pawaq"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6evcr"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fcxbd"]
+animation = &"ATACK"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vkewb"]
+animation = &"ATACK_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w011f"]
+animation = &"CARACOLA"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_35w06"]
+animation = &"CROUCH"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kl7ss"]
+animation = &"CROUCH_IDLE"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_chg4g"]
+animation = &"CROUCH_MOVE"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b82lq"]
+animation = &"dash"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_36rw5"]
+animation = &"DEAD"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gbu8h"]
+animation = &"DEFENSE"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ttlqx"]
+animation = &"AIR_DOWN"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2if38"]
+animation = &"IDLE"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cfppm"]
+animation = &"IDLE_DEF"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_702r0"]
+animation = &"JUMP"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lx4u7"]
+animation = &"RUN"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2eac5"]
+animation = &"AIR_UP"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_u48me"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_vl2lu"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_vn1n5"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_2i827"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_kotd8"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_bfedx"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_yoghh"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_l2tt3"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gxgn2"]
+animation = &"DEAD_2"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_6jabp"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ffaiu"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_xo5hi"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_uysdg"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_dr6lr"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_4kacf"]
+graph_offset = Vector2(173.157, -438.353)
+nodes/AIR_DOWN/node = SubResource("AnimationNodeBlend2_pawaq")
+nodes/AIR_DOWN/position = Vector2(1180, -340)
+nodes/AIR_UP/node = SubResource("AnimationNodeBlend2_6evcr")
+nodes/AIR_UP/position = Vector2(1000, -420)
+nodes/ANIM_ATACK/node = SubResource("AnimationNodeAnimation_fcxbd")
+nodes/ANIM_ATACK/position = Vector2(1380, 600)
+nodes/ANIM_ATTACK2/node = SubResource("AnimationNodeAnimation_vkewb")
+nodes/ANIM_ATTACK2/position = Vector2(1540, 680)
+nodes/ANIM_CARACOLA/node = SubResource("AnimationNodeAnimation_w011f")
+nodes/ANIM_CARACOLA/position = Vector2(1920, 840)
+nodes/ANIM_CROUCH/node = SubResource("AnimationNodeAnimation_35w06")
+nodes/ANIM_CROUCH/position = Vector2(2120, 920)
+nodes/ANIM_CROUCH_IDLE/node = SubResource("AnimationNodeAnimation_kl7ss")
+nodes/ANIM_CROUCH_IDLE/position = Vector2(-340, -100)
+nodes/ANIM_CROUCH_MOVE/node = SubResource("AnimationNodeAnimation_chg4g")
+nodes/ANIM_CROUCH_MOVE/position = Vector2(180, 640)
+nodes/ANIM_DASH/node = SubResource("AnimationNodeAnimation_b82lq")
+nodes/ANIM_DASH/position = Vector2(1000, 420)
+nodes/ANIM_DEAD/node = SubResource("AnimationNodeAnimation_36rw5")
+nodes/ANIM_DEAD/position = Vector2(2300, 980)
+nodes/ANIM_DEFENSE/node = SubResource("AnimationNodeAnimation_gbu8h")
+nodes/ANIM_DEFENSE/position = Vector2(1720, 760)
+nodes/ANIM_DOWN/node = SubResource("AnimationNodeAnimation_ttlqx")
+nodes/ANIM_DOWN/position = Vector2(1000, -180)
+nodes/ANIM_IDLE/node = SubResource("AnimationNodeAnimation_2if38")
+nodes/ANIM_IDLE/position = Vector2(-460, -440)
+nodes/ANIM_IDLE_DEF/node = SubResource("AnimationNodeAnimation_cfppm")
+nodes/ANIM_IDLE_DEF/position = Vector2(-480, -260)
+nodes/ANIM_JUMP/node = SubResource("AnimationNodeAnimation_702r0")
+nodes/ANIM_JUMP/position = Vector2(1200, 500)
+nodes/ANIM_RUN/node = SubResource("AnimationNodeAnimation_lx4u7")
+nodes/ANIM_RUN/position = Vector2(60, 400)
+nodes/ANIM_UP/node = SubResource("AnimationNodeAnimation_2eac5")
+nodes/ANIM_UP/position = Vector2(820, -260)
+nodes/ATACK/node = SubResource("AnimationNodeOneShot_u48me")
+nodes/ATACK/position = Vector2(1560, 400)
+nodes/ATTACK2/node = SubResource("AnimationNodeOneShot_vl2lu")
+nodes/ATTACK2/position = Vector2(1740, 480)
+nodes/CARACOLA/node = SubResource("AnimationNodeOneShot_vn1n5")
+nodes/CARACOLA/position = Vector2(2120, 640)
+nodes/CROUCH/node = SubResource("AnimationNodeOneShot_2i827")
+nodes/CROUCH/position = Vector2(2300, 700)
+nodes/CROUCH_IDLE/node = SubResource("AnimationNodeBlend2_kotd8")
+nodes/CROUCH_IDLE/position = Vector2(-100, -220)
+nodes/CROUCH_MOVE/node = SubResource("AnimationNodeBlend2_bfedx")
+nodes/CROUCH_MOVE/position = Vector2(460, 500)
+nodes/DASH/node = SubResource("AnimationNodeOneShot_yoghh")
+nodes/DASH/position = Vector2(1180, 200)
+nodes/DEAD/node = SubResource("AnimationNodeOneShot_l2tt3")
+nodes/DEAD/position = Vector2(2480, 760)
+nodes/DEAD2/node = SubResource("AnimationNodeOneShot_6jabp")
+nodes/DEAD2/position = Vector2(2660, 880)
+"nodes/DEAD2 2/node" = SubResource("AnimationNodeAnimation_gxgn2")
+"nodes/DEAD2 2/position" = Vector2(2480, 1040)
+nodes/DEFENSE/node = SubResource("AnimationNodeOneShot_ffaiu")
+nodes/DEFENSE/position = Vector2(1920, 560)
+nodes/IDLE_DEF/node = SubResource("AnimationNodeBlend2_xo5hi")
+nodes/IDLE_DEF/position = Vector2(-280, -340)
+nodes/JUMP/node = SubResource("AnimationNodeOneShot_uysdg")
+nodes/JUMP/position = Vector2(1380, 320)
+nodes/RUN/node = SubResource("AnimationNodeBlend2_dr6lr")
+nodes/RUN/position = Vector2(260, 380)
+nodes/output/position = Vector2(2880, 200)
+node_connections = [&"AIR_DOWN", 0, &"AIR_UP", &"AIR_DOWN", 1, &"ANIM_DOWN", &"AIR_UP", 0, &"CROUCH_MOVE", &"AIR_UP", 1, &"ANIM_UP", &"ATACK", 0, &"JUMP", &"ATACK", 1, &"ANIM_ATACK", &"ATTACK2", 0, &"ATACK", &"ATTACK2", 1, &"ANIM_ATTACK2", &"CARACOLA", 0, &"DEFENSE", &"CARACOLA", 1, &"ANIM_CARACOLA", &"CROUCH", 0, &"CARACOLA", &"CROUCH", 1, &"ANIM_CROUCH", &"CROUCH_IDLE", 0, &"IDLE_DEF", &"CROUCH_IDLE", 1, &"ANIM_CROUCH_IDLE", &"CROUCH_MOVE", 0, &"RUN", &"CROUCH_MOVE", 1, &"ANIM_CROUCH_MOVE", &"DASH", 0, &"AIR_DOWN", &"DASH", 1, &"ANIM_DASH", &"DEAD", 0, &"CROUCH", &"DEAD", 1, &"ANIM_DEAD", &"DEAD2", 0, &"DEAD", &"DEAD2", 1, &"DEAD2 2", &"DEFENSE", 0, &"ATTACK2", &"DEFENSE", 1, &"ANIM_DEFENSE", &"IDLE_DEF", 0, &"ANIM_IDLE", &"IDLE_DEF", 1, &"ANIM_IDLE_DEF", &"JUMP", 0, &"DASH", &"JUMP", 1, &"ANIM_JUMP", &"RUN", 0, &"CROUCH_IDLE", &"RUN", 1, &"ANIM_RUN", &"output", 0, &"DEAD2"]
+
+[node name="guerrero_2" instance=ExtResource("1_v3u5p")]
+offset = Vector2(-3, 1)
+region_rect = Rect2(320, 141, 54, 66)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="1"]
+tree_root = SubResource("AnimationNodeBlendTree_4kacf")
+anim_player = NodePath("../AnimationPlayer")
+parameters/AIR_DOWN/blend_amount = 0.0
+parameters/AIR_UP/blend_amount = 0
+parameters/ATACK/active = false
+parameters/ATACK/internal_active = false
+parameters/ATACK/request = 0
+parameters/ATTACK2/active = false
+parameters/ATTACK2/internal_active = false
+parameters/ATTACK2/request = 0
+parameters/CARACOLA/active = false
+parameters/CARACOLA/internal_active = false
+parameters/CARACOLA/request = 0
+parameters/CROUCH/active = false
+parameters/CROUCH/internal_active = false
+parameters/CROUCH/request = 0
+parameters/CROUCH_IDLE/blend_amount = 0
+parameters/CROUCH_MOVE/blend_amount = 0
+parameters/DASH/active = false
+parameters/DASH/internal_active = false
+parameters/DASH/request = 0
+parameters/DEAD/active = false
+parameters/DEAD/internal_active = false
+parameters/DEAD/request = 0
+parameters/DEAD2/active = false
+parameters/DEAD2/internal_active = false
+parameters/DEAD2/request = 0
+parameters/DEFENSE/active = false
+parameters/DEFENSE/internal_active = false
+parameters/DEFENSE/request = 0
+parameters/IDLE_DEF/blend_amount = 0.0
+parameters/JUMP/active = false
+parameters/JUMP/internal_active = false
+parameters/JUMP/request = 0
+parameters/RUN/blend_amount = 0.0
