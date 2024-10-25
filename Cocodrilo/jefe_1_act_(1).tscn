@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://di4bni72y0d6p"]
+
+[ext_resource type="PackedScene" uid="uid://b88sj20p5yane" path="res://Cocodrilo/Jefe1act (1).ase" id="1_je6fg"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_61e81"]
+animation = &"Caminar"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_npj6c"]
+graph_offset = Vector2(64, 8)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_61e81")
+nodes/Animation/position = Vector2(106.667, 186.667)
+node_connections = [&"output", 0, &"Animation"]
+
+[node name="Jefe1act (1)" instance=ExtResource("1_je6fg")]
+offset = Vector2(6, 3)
+region_rect = Rect2(338, 0, 113, 91)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="1"]
+tree_root = SubResource("AnimationNodeBlendTree_npj6c")
+anim_player = NodePath("../AnimationPlayer")
