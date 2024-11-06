@@ -1,2 +1,8 @@
 res://god-rays.gdshader
-res://Cocodrilo/jefe_1_act_(1).tscn
+res://Cocodrilo/cocodrilo.gd
+res://escena1.tscn
+res://Cocodrilo/cocodrilo.tscn
+res://main_character/main.tscn
+res://main_character/guerrero_2.tscn
+res://main_character/guerrero_2l.tscn
+res://Cocodrilo/enemigo_avanzado.tscn

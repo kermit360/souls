@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2ey4j24odwbo"]
+
+[ext_resource type="PackedScene" uid="uid://ch3qow7ivvb3o" path="res://Cocodrilo/EnemigoAvanzado.ase" id="1_hvok5"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dvntm"]
+animation = &"Preparacion Ataque"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lafwg"]
+animation = &"Caminar"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_cw7iq"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_s2xr0"]
+graph_offset = Vector2(-245.333, 138.667)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_lafwg")
+nodes/Animation/position = Vector2(-133.333, 160)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_dvntm")
+"nodes/Animation 2/position" = Vector2(-133.333, 320)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_cw7iq")
+nodes/Blend2/position = Vector2(80, 160)
+node_connections = [&"Blend2", 0, &"Animation", &"Blend2", 1, &"Animation 2", &"output", 0, &"Blend2"]
+
+[node name="EnemigoAvanzado" instance=ExtResource("1_hvok5")]
+offset = Vector2(3, 13)
+region_rect = Rect2(0, 356, 113, 86)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="1"]
+tree_root = SubResource("AnimationNodeBlendTree_s2xr0")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Blend2/blend_amount = 0

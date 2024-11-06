@@ -2,13 +2,13 @@
 
 importer="Aseprite Sprite2D Import"
 type="PackedScene"
-uid="uid://b88sj20p5yane"
-path="res://.godot/imported/Jefe1act (1).ase-e24ad567cae08120b86b341ed9db48ef.scn"
+uid="uid://ch3qow7ivvb3o"
+path="res://.godot/imported/EnemigoAvanzado.ase-d65ea7710800a00da87421aaa64cf4b7.scn"
 
 [deps]
 
-source_file="res://Cocodrilo/Jefe1act (1).ase"
-dest_files=["res://.godot/imported/Jefe1act (1).ase-e24ad567cae08120b86b341ed9db48ef.scn"]
+source_file="res://Cocodrilo/EnemigoAvanzado.ase"
+dest_files=["res://.godot/imported/EnemigoAvanzado.ase-d65ea7710800a00da87421aaa64cf4b7.scn"]
 
 [params]
 

@@ -1,8 +1,8 @@
 f2ca747bc66a24bbdfe24890ad44a30a
-::res://::1729892205
+::res://::1730927142
 escena1.tscn::PackedScene::8630614882243610529::1729891966::0::1::::<><>::uid://c70gvywd5gbh4::::res://main_character/main.tscn<>res://escena_1.gd<>uid://c7go4r08me1hw::::res://fondo/nubes.png<>uid://pwtkfbsd1080::::res://fondo/bosq.png<>uid://c63sl8ywhjtmu::::res://frente/tree_1.png<>uid://df1rcu3p6knla::::res://frente/tree_2.png<>uid://r2sf4kkoh620::::res://frente/tree_3.png<>uid://dtbkufcpg65nq::::res://frente/tree_4.png<>uid://bniib1jmvvluw::::res://frente/bush_1.png<>uid://d2o3ahclkev7j::::res://frente/bush_2.png<>uid://m34wp6yyvdop::::res://frente/bush_3.png<>uid://bm12ymqfhhl7::::res://jarron/jarron_atacable.tscn<>uid://ygl3esntnrd8::::res://tilemap/tilemap.png
 escena_1.gd::GDScript::-1::1729891966::0::1::::<>Node2D<>::
-god-rays.gdshader::Shader::-1::1729891967::0::1::::<><>::
+god-rays.gdshader::Shader::-1::1729892354::0::1::::<><>::
 ::res://addons/::1729892174
 guerrera3.ase::CompressedTexture2D::7420886115066885049::1729891966::1729892171::1::::<><>::
 guerrera3.ase1.png::CompressedTexture2D::7899853494766374645::1729891966::1729892174::1::::<><>::
@@ -136,9 +136,12 @@ sprite_frames.gd::GDScript::-1::1729891966::0::1::::<><>::
 texture_rect.gd::GDScript::-1::1729891966::0::1::::<><>::
 ::res://casas/::1729892174
 casa1.png::CompressedTexture2D::3616319764600730384::1729891966::1729892174::1::::<><>::
-::res://Cocodrilo/::1729892220
+::res://Cocodrilo/::1730927449
+EnemigoAvanzado.ase::PackedScene::5322963528304852930::1730927449::1730927478::1::::<><>::uid://dxotngngw4dv8::::res://Cocodrilo/EnemigoAvanzado.png
 Jefe1act (1).ase::PackedScene::4771887425120212222::1729892220::1729892237::1::::<><>::uid://dlmhmaermbhbu::::res://Cocodrilo/Jefe1act (1).png
 Jefe1act (1).png::CompressedTexture2D::7956558319590304058::1729892237::1729892237::1::::<><>::
+jefe_1_act_(1).tscn::PackedScene::7780724158245183969::1729892353::0::1::::<><>::uid://b88sj20p5yane::::res://Cocodrilo/Jefe1act (1).ase
+EnemigoAvanzado.png::CompressedTexture2D::8803683917019925567::1730927478::1730927478::1::::<><>::
 ::res://fondo/::1729892174
 bosq.png::CompressedTexture2D::1099420710945866335::1729891966::1729892174::1::::<><>::
 nubes.png::CompressedTexture2D::7032173389282224940::1729891966::1729892174::1::::<><>::
