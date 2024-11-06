@@ -3,11 +3,12 @@
 importer="Aseprite Sprite2D Import"
 type="PackedScene"
 uid="uid://dbx05krw8l42p"
-valid=false
+path="res://.godot/imported/nahual.ase-0a0006ace8e1ed40a743d9d3d01865e3.scn"
 
 [deps]
 
 source_file="res://nahual/nahual.ase"
+dest_files=["res://.godot/imported/nahual.ase-0a0006ace8e1ed40a743d9d3d01865e3.scn"]
 
 [params]
 

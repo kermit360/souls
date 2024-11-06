@@ -3,11 +3,12 @@
 importer="Aseprite Sprite2D Import"
 type="PackedScene"
 uid="uid://b2sjbj63ki8cn"
-valid=false
+path="res://.godot/imported/guerrera3.ase-d4ae41194e0dd31e9d99ab30d57ffc7f.scn"
 
 [deps]
 
 source_file="res://main_character/guerrera3.ase"
+dest_files=["res://.godot/imported/guerrera3.ase-d4ae41194e0dd31e9d99ab30d57ffc7f.scn"]
 
 [params]
 

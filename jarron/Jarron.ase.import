@@ -3,11 +3,12 @@
 importer="Aseprite Sprite2D Import"
 type="PackedScene"
 uid="uid://dgxqausgblq66"
-valid=false
+path="res://.godot/imported/Jarron.ase-d141d5e50e9cd4e47ad74714c4fe6460.scn"
 
 [deps]
 
 source_file="res://jarron/Jarron.ase"
+dest_files=["res://.godot/imported/Jarron.ase-d141d5e50e9cd4e47ad74714c4fe6460.scn"]
 
 [params]
 

@@ -2,13 +2,13 @@
 
 importer="Aseprite Sprite2D Import"
 type="PackedScene"
-uid="uid://dbopi0qvwip3x"
-path="res://.godot/imported/guerrera3_left.ase-9b30b831594330572a4e228fa871fba9.scn"
+uid="uid://baeajhk2r6cba"
+path="res://.godot/imported/bruja.ase-e1b8b9bc66846240d653c48de9dd79ab.scn"
 
 [deps]
 
-source_file="res://main_character/guerrera3_left.ase"
-dest_files=["res://.godot/imported/guerrera3_left.ase-9b30b831594330572a4e228fa871fba9.scn"]
+source_file="res://Bruja/bruja.ase"
+dest_files=["res://.godot/imported/bruja.ase-e1b8b9bc66846240d653c48de9dd79ab.scn"]
 
 [params]
 
