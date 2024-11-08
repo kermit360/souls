@@ -32,6 +32,10 @@ var current_Live_State = vivo
 
 func _ready() -> void:
 	anim_tree = anim_treeR
+	
+	#Senales que recibe
+	var cococdrilo = get_node("Cocodrilo")
+	cocodrilo.connect("ataco"),Callable(self,"recibir_ataque") 
 
 func _process(_delta):
 	Animation_Handler()

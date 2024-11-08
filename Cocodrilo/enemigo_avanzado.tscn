@@ -1,30 +1,43 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2ey4j24odwbo"]
+[gd_scene load_steps=8 format=3 uid="uid://c2ey4j24odwbo"]
 
 [ext_resource type="PackedScene" uid="uid://ch3qow7ivvb3o" path="res://Cocodrilo/EnemigoAvanzado.ase" id="1_hvok5"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dvntm"]
+animation = &"Caminar"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uwlr3"]
 animation = &"Preparacion Ataque"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lafwg"]
-animation = &"Caminar"
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_4hhda"]
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_cw7iq"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_s2xr0"]
-graph_offset = Vector2(-245.333, 138.667)
+graph_offset = Vector2(-487.221, -19.2514)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_lafwg")
-nodes/Animation/position = Vector2(-133.333, 160)
+nodes/Animation/position = Vector2(-266.667, 186.667)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_dvntm")
-"nodes/Animation 2/position" = Vector2(-133.333, 320)
-nodes/Blend2/node = SubResource("AnimationNodeBlend2_cw7iq")
-nodes/Blend2/position = Vector2(80, 160)
-node_connections = [&"Blend2", 0, &"Animation", &"Blend2", 1, &"Animation 2", &"output", 0, &"Blend2"]
+"nodes/Animation 2/position" = Vector2(-293.333, 346.667)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_uwlr3")
+"nodes/Animation 3/position" = Vector2(133.333, 480)
+nodes/Ataque/node = SubResource("AnimationNodeOneShot_4hhda")
+nodes/Ataque/position = Vector2(400, 320)
+nodes/Caminar/node = SubResource("AnimationNodeBlend2_cw7iq")
+nodes/Caminar/position = Vector2(80, 160)
+nodes/output/position = Vector2(453.333, 160)
+node_connections = [&"Ataque", 0, &"Caminar", &"Ataque", 1, &"Animation 3", &"Caminar", 0, &"Animation", &"Caminar", 1, &"Animation 2", &"output", 0, &"Ataque"]
 
 [node name="EnemigoAvanzado" instance=ExtResource("1_hvok5")]
-offset = Vector2(3, 13)
-region_rect = Rect2(0, 356, 113, 86)
+offset = Vector2(2, 10)
+region_rect = Rect2(225, 0, 115, 91)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="1"]
 tree_root = SubResource("AnimationNodeBlendTree_s2xr0")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Blend2/blend_amount = 0
+parameters/Ataque/active = false
+parameters/Ataque/internal_active = false
+parameters/Ataque/request = 0
+parameters/Caminar/blend_amount = 0.0

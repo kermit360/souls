@@ -4,16 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://c2ey4j24odwbo" path="res://Cocodrilo/enemigo_avanzado.tscn" id="2_7172m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jykx6"]
-radius = 40.0
-height = 88.0
+radius = 47.0
+height = 94.0
 
 [node name="Cocodrilo" type="CharacterBody2D"]
 script = ExtResource("1_bkjro")
 
 [node name="EnemigoAvanzado" parent="." instance=ExtResource("2_7172m")]
-offset = Vector2(3, 8)
-region_rect = Rect2(112, 0, 113, 95)
+offset = Vector2(2, 11)
+region_rect = Rect2(225, 91, 115, 89)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7, 10)
+position = Vector2(7, 8)
 shape = SubResource("CapsuleShape2D_jykx6")
