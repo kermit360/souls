@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var anim_tree: AnimationTree = $bruja/AnimationTree
 
-const SPEED = 100.0
+const SPEED = 80.0
 var personaje = null
 var distancia = 0
 
@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	else :
 		velocity = position.direction_to(personaje.position)*SPEED
-	if position.distance_to(personaje.position)< 200:
+	if position.distance_to(personaje.position)< 300:
 		anim_tree["parameters/walk/blend_amount"]= 1
 		move_and_slide()
 	

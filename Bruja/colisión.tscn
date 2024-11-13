@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://bugwuvfxnq5d8"]
 
 [ext_resource type="PackedScene" uid="uid://dufohdvsrgsr8" path="res://Bruja/bruja.tscn" id="1_dvxxt"]
-[ext_resource type="Script" path="res://Bruja/colisión.gd" id="1_f0ai4"]
+[ext_resource type="Script" path="res://Bruja/bruja1.gd" id="1_xgv81"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w5d04"]
 radius = 23.0
 height = 66.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_f0ai4")
+script = ExtResource("1_xgv81")
 
 [node name="bruja" parent="." instance=ExtResource("1_dvxxt")]
 region_rect = Rect2(0, 62, 47, 63)
