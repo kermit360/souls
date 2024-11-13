@@ -1,8 +1,7 @@
-res://Cocodrilo/cocodrilo.tscn
-res://god-rays.gdshader
-res://Cocodrilo/cocodrilo.gd
 res://escena1.tscn
+res://god-rays.gdshader
 res://main_character/main.tscn
 res://Cocodrilo/enemigo_avanzado.tscn
-res://main_character/main.gd
+res://Cocodrilo/cocodrilo.tscn
 res://escena_1.gd
+res://Cocodrilo/cocodrilo.gd
