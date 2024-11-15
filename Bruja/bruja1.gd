@@ -56,8 +56,16 @@ func verificar_transformacion(distancia: float) -> void:
 func transformarse() -> void:
 	transformada = true
 	anim_tree["parameters/transformación/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
-	# Cambiar otros atributos o agregar efectos visuales para la transformación.
+	dash_Animation (direccion, 120, .5)
+
 
 func regresar_estado_inicial() -> void:
 	transformada = false
 	anim_tree["parameters/Ataque/blend_amount"] = 1
+	
+	
+func dash_Animation(direccion, incremento, tiempo):
+	var pos_Ini = position
+	var pos_Fin = pos_Ini + Vector2(direccion * incremento, 0)
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position", pos_Fin, tiempo)
