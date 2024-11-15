@@ -11,7 +11,8 @@ height = 66.0
 script = ExtResource("1_xgv81")
 
 [node name="bruja" parent="." instance=ExtResource("1_dvxxt")]
-region_rect = Rect2(0, 62, 47, 63)
+offset = Vector2(6, 1)
+region_rect = Rect2(235, 123, 47, 63)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 1)
