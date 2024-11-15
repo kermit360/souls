@@ -10,7 +10,7 @@
 radius = 11.0
 height = 68.0
 
-[node name="main_char" type="CharacterBody2D"]
+[node name="main_char" type="CharacterBody2D" groups=["main"]]
 script = ExtResource("1_mue3s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -32,21 +32,20 @@ collide_with_areas = true
 [node name="guerrera3_left" parent="." instance=ExtResource("2_01jj5")]
 visible = false
 position = Vector2(5, -22)
-offset = Vector2(-5, 0)
-region_rect = Rect2(251, 261, 45, 69)
+offset = Vector2(-7, 0)
+region_rect = Rect2(157, 198, 47, 68)
 
 [node name="guerrera3" parent="." instance=ExtResource("3_xe76n")]
 visible = false
 position = Vector2(7, -22)
 offset = Vector2(-3, 0)
-region_rect = Rect2(0, 67, 56, 69)
+region_rect = Rect2(518, 135, 54, 68)
 
 [node name="guerrero_2" parent="." instance=ExtResource("4_fefe7")]
-offset = Vector2(-3, 1)
 region_rect = Rect2(320, 141, 54, 66)
 
 [node name="guerrero_2L" parent="." instance=ExtResource("5_2htlo")]
 visible = false
 position = Vector2(-10, 0)
 offset = Vector2(3, 0)
-region_rect = Rect2(702, 206, 45, 69)
+region_rect = Rect2(513, 179, 47, 68)

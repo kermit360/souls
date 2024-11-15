@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddqhohnubx5s4"
-path="res://.godot/imported/tilemap.png-f63b070aa7889c8498f351d78647d95f.ctex"
+uid="uid://dxotngngw4dv8"
+path="res://.godot/imported/EnemigoAvanzado.png-d28095baa168117de938e4189e234c5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilemap/tilemap.png"
-dest_files=["res://.godot/imported/tilemap.png-f63b070aa7889c8498f351d78647d95f.ctex"]
+source_file="res://Cocodrilo/EnemigoAvanzado.png"
+dest_files=["res://.godot/imported/EnemigoAvanzado.png-d28095baa168117de938e4189e234c5b.ctex"]
 
 [params]
 

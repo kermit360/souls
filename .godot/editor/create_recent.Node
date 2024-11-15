@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 CollisionShape2D
 CharacterBody2D
 AnimationTree
 Node
+=======
+Node2D
+CollisionShape2D
+CharacterBody2D
+AnimationTree
+>>>>>>> cocdrilo
 Sprite2D
 TileMapLayer
 RayCast2D
@@ -11,4 +18,8 @@ WorldEnvironment
 PointLight2D
 LightOccluder2D
 StaticBody2D
+<<<<<<< HEAD
 Node2D
+=======
+Area2D
+>>>>>>> cocdrilo

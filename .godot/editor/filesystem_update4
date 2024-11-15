@@ -1,5 +1,14 @@
+<<<<<<< HEAD
 res://Bruja/bruja.tscn
 res://god-rays.gdshader
 res://Bruja/bruja1.gd
 res://Bruja/colisión.tscn
+=======
+>>>>>>> cocdrilo
 res://escena1.tscn
+res://god-rays.gdshader
+res://main_character/main.tscn
+res://Cocodrilo/enemigo_avanzado.tscn
+res://Cocodrilo/cocodrilo.tscn
+res://escena_1.gd
+res://Cocodrilo/cocodrilo.gd
