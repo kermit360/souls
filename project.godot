@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 
 [aseprite_importers]
 
-aseprite_executable_path="/Users/Jos/aseprite/build/bin/aseprite"
+aseprite_executable_path="C:\\aseprite\\bin\\aseprite.exe"
 
 [display]
 

@@ -11,33 +11,31 @@ animation = &"Preparacion Ataque"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lafwg"]
 animation = &"Idle"
 
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_4hhda"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ubd2k"]
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_cw7iq"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_s2xr0"]
-graph_offset = Vector2(-487.221, -19.2514)
+graph_offset = Vector2(-194.833, 297.725)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_lafwg")
 nodes/Animation/position = Vector2(-266.667, 186.667)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_dvntm")
 "nodes/Animation 2/position" = Vector2(-293.333, 346.667)
 "nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_uwlr3")
 "nodes/Animation 3/position" = Vector2(133.333, 480)
-nodes/Ataque/node = SubResource("AnimationNodeOneShot_4hhda")
-nodes/Ataque/position = Vector2(400, 320)
+nodes/Ataque/node = SubResource("AnimationNodeBlend2_ubd2k")
+nodes/Ataque/position = Vector2(314.764, 278.878)
 nodes/Caminar/node = SubResource("AnimationNodeBlend2_cw7iq")
 nodes/Caminar/position = Vector2(80, 160)
 nodes/output/position = Vector2(453.333, 160)
 node_connections = [&"Ataque", 0, &"Caminar", &"Ataque", 1, &"Animation 3", &"Caminar", 0, &"Animation", &"Caminar", 1, &"Animation 2", &"output", 0, &"Ataque"]
 
 [node name="EnemigoAvanzado" instance=ExtResource("1_hvok5")]
-offset = Vector2(2, 10)
-region_rect = Rect2(225, 0, 115, 91)
+offset = Vector2(2, 11)
+region_rect = Rect2(225, 91, 115, 89)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="1"]
 tree_root = SubResource("AnimationNodeBlendTree_s2xr0")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Ataque/active = false
-parameters/Ataque/internal_active = false
-parameters/Ataque/request = 0
+parameters/Ataque/blend_amount = 0
 parameters/Caminar/blend_amount = 0.0

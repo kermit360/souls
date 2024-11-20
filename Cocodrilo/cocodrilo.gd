@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 					
 				else:
 					bruja.scale.x = -1
-			print(direccion)
+			#print(direccion)
 			# Ajustar la escala del sprite según la dirección
 			
 			# Activar animación de caminar

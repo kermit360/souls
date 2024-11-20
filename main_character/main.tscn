@@ -1,8 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c70gvywd5gbh4"]
+[gd_scene load_steps=5 format=3 uid="uid://c70gvywd5gbh4"]
 
 [ext_resource type="Script" path="res://main_character/main.gd" id="1_mue3s"]
-[ext_resource type="PackedScene" uid="uid://cq0eyhqum3d6l" path="res://main_character/guerrera_3_left.tscn" id="2_01jj5"]
-[ext_resource type="PackedScene" uid="uid://b2voo03spl80k" path="res://main_character/guerrera_3.tscn" id="3_xe76n"]
 [ext_resource type="PackedScene" uid="uid://bfquvl3mf1i4n" path="res://main_character/guerrero_2.tscn" id="4_fefe7"]
 [ext_resource type="PackedScene" uid="uid://c218jr2u5yah" path="res://main_character/guerrero_2l.tscn" id="5_2htlo"]
 
@@ -11,6 +9,8 @@ radius = 11.0
 height = 68.0
 
 [node name="main_char" type="CharacterBody2D" groups=["main"]]
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_mue3s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -29,18 +29,6 @@ target_position = Vector2(51, 6)
 collision_mask = 2
 collide_with_areas = true
 
-[node name="guerrera3_left" parent="." instance=ExtResource("2_01jj5")]
-visible = false
-position = Vector2(5, -22)
-offset = Vector2(-7, 0)
-region_rect = Rect2(157, 198, 47, 68)
-
-[node name="guerrera3" parent="." instance=ExtResource("3_xe76n")]
-visible = false
-position = Vector2(7, -22)
-offset = Vector2(-3, 0)
-region_rect = Rect2(518, 135, 54, 68)
-
 [node name="guerrero_2" parent="." instance=ExtResource("4_fefe7")]
 region_rect = Rect2(320, 141, 54, 66)
 
@@ -48,4 +36,4 @@ region_rect = Rect2(320, 141, 54, 66)
 visible = false
 position = Vector2(-10, 0)
 offset = Vector2(3, 0)
-region_rect = Rect2(513, 179, 47, 68)
+region_rect = Rect2(702, 206, 45, 69)

@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://m34wp6yyvdop" path="res://frente/bush_3.png" id="10_pky2d"]
 [ext_resource type="PackedScene" uid="uid://bm12ymqfhhl7" path="res://jarron/jarron_atacable.tscn" id="12_8t572"]
 [ext_resource type="Texture2D" uid="uid://ddqhohnubx5s4" path="res://tilemap/tilemap.png" id="13_0owpt"]
-[ext_resource type="PackedScene" uid="uid://cvonotkeekjxu" path="res://Cocodrilo/cocodrilo.tscn" id="14_ycbfa"]
+[ext_resource type="PackedScene" uid="uid://c11vacxyrwbt7" path="res://nahual/character_body_2d.tscn" id="16_osfys"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n1bpv"]
 texture = ExtResource("13_0owpt")
@@ -242,7 +242,7 @@ position = Vector2(520, 361)
 position = Vector2(753, 360)
 
 [node name="main_char" parent="." instance=ExtResource("1_dyfxa")]
-position = Vector2(318, 334)
+position = Vector2(380, 331)
 
 [node name="luces" type="Node2D" parent="."]
 
@@ -330,5 +330,5 @@ tile_set = SubResource("TileSet_f8ftq")
 
 [node name="Enemigos" type="Node2D" parent="."]
 
-[node name="Cocodrilo" parent="Enemigos" instance=ExtResource("14_ycbfa")]
-position = Vector2(110, 314)
+[node name="CharacterBody2D" parent="." instance=ExtResource("16_osfys")]
+position = Vector2(93, 331)

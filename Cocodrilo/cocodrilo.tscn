@@ -11,8 +11,6 @@ height = 94.0
 script = ExtResource("1_bkjro")
 
 [node name="EnemigoAvanzado" parent="." instance=ExtResource("2_7172m")]
-offset = Vector2(2, 11)
-region_rect = Rect2(225, 91, 115, 89)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7, 8)

@@ -6,6 +6,9 @@ extends CharacterBody2D
 @onready var anim_treeL: AnimationTree = $guerrero_2L/AnimationTree
 @onready var spear: RayCast2D = $RayCast2D
 
+@onready var spriteR: Sprite2D = $guerrero_2
+@onready var spriteL: Sprite2D = $guerrero_2L
+
 # Logica Animaciones
 enum {
 	IDLE, IDLE_DEF, #IDLES
@@ -13,9 +16,10 @@ enum {
 	}
 var current_animation = IDLE
 var CROUCHED : bool = false 
+var ultima_Direccion = 1
 
 #Logica Fisicas
-var SPEED : float = 300.0
+var SPEED : float = 200.0
 var JUMP_VELOCITY : float = -400.0
 
 # Logica Ataques
@@ -28,14 +32,12 @@ enum {
 	vivo, moribundo, muerto
 }
 var current_Live_State = vivo
+var ataque_Recibido = 0
 
 
 func _ready() -> void:
 	anim_tree = anim_treeR
-	
-	#Senales que recibe
-	#var cococdrilo = get_node("Cocodrilo")
-	#cocodrilo.connect("ataco"),Callable(self,"recibir_ataque") 
+	self.connect("hit", Callable(self, "_on_hit"))
 
 func _process(_delta):
 	Animation_Handler()
@@ -60,6 +62,9 @@ func _physics_process(delta: float) -> void:
 			anim_tree["parameters/ATACK/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 		else:
 			anim_tree["parameters/ATTACK2/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+		if not CROUCHED:
+			dash_Animation(ultima_Direccion, 10, .5)
+		
 
 		if spear.is_colliding():
 			objeto_Atacado = spear.get_collider()
@@ -78,16 +83,18 @@ func _physics_process(delta: float) -> void:
 		anim_tree["parameters/CROUCH/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 	if Input.is_action_pressed("crouch"):
 		CROUCHED = true
-		SPEED = 150
+		SPEED = 100
 	if Input.is_action_just_released("crouch"):
 		CROUCHED = false
-		SPEED = 300
+		SPEED = 200
 
 	# dash
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_just_pressed("dash") and not CROUCHED:
 		anim_tree["parameters/DASH/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
-	
+		dash_Animation(ultima_Direccion, 120, .5)
+		
 	if direction != 0 and current_Live_State != muerto:
+		ultima_Direccion = direction
 		velocity.x = direction * SPEED
 		if direction < 0:
 			anim_tree = anim_treeL
@@ -192,3 +199,30 @@ func Dead_Handler():
 			anim_tree["parameters/DEAD/blend_amount"] = -1
 		else:
 			anim_tree["parameters/DEAD/blend_amount"] = 1
+
+#func dash_Animation(direccion, incremento):
+	#for i in range(10):
+			#self.position.x += direccion * abs(cos(i)) * incremento
+			
+func dash_Animation(direccion, incremento, tiempo):
+	var pos_Ini = position
+	var pos_Fin = pos_Ini + Vector2(direccion * incremento, 0)
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position", pos_Fin, tiempo)
+
+func dano_Recibido(dano, direccion_Ataque):
+	ataque_Recibido = dano
+	vida -= dano
+	if direccion_Ataque>0:
+		ultimo_Ataque_Left = true
+	else:
+		ultimo_Ataque_Left = false
+
+func actualizar_Color_Por_Ataque():
+	var tween = get_tree().create_tween()
+	if ataque_Recibido > 0:
+		tween.tween_property(spriteR, "modulate", Color.RED, .5)
+		tween.tween_property(spriteL, "modulate", Color.RED, .5)
+	else:
+		tween.tween_property(spriteR, "modulate", Color.WHITE, .5)
+		tween.tween_property(spriteL, "modulate", Color.WHITE, .5)

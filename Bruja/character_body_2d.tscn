@@ -1,6 +1,11 @@
-extends CharacterBody2D
+[gd_scene load_steps=4 format=3 uid="uid://bugwuvfxnq5d8"]
 
-@onready var bruja: Sprite2D = $bruja
+[ext_resource type="PackedScene" uid="uid://dufohdvsrgsr8" path="res://Bruja/bruja.tscn" id="1_dvxxt"]
+
+[sub_resource type="GDScript" id="GDScript_sax7h"]
+script/source = "extends CharacterBody2D
+
+@onready var sprite: Sprite2D = $bruja
 @onready var anim_tree: AnimationTree = $bruja/AnimationTree
 
 const SPEED = 80.0
@@ -28,24 +33,24 @@ func _physics_process(delta: float) -> void:
 			# Calcular dirección y movimiento
 			direccion = position.direction_to(position_objetivo).x
 			velocity = position.direction_to(position_objetivo) * (SPEED_TRANSFORMADA if transformada else SPEED)
-			bruja.scale.x = 1 if direccion > 0 else -1
+			sprite.scale.x = 1 if direccion > 0 else -1
 			
 			# Activar animación de caminar
-			anim_tree["parameters/walk/blend_amount"] = 1
+			anim_tree[\"parameters/walk/blend_amount\"] = 1
 		else:
 			# Si está cerca, detener movimiento y activar animación de ataque
 			velocity = Vector2.ZERO
-			anim_tree["parameters/walk/blend_amount"] = 0
-			anim_tree["parameters/Ataque/blend_amount"] = 1
+			anim_tree[\"parameters/walk/blend_amount\"] = 0
+			anim_tree[\"parameters/Ataque/blend_amount\"] = 1
 	
 	move_and_slide()
 
 func _ready() -> void:
-	personaje = get_parent().get_node("main_char")
+	personaje = get_parent().get_node(\"main_char\")
 
 func _on_area_entered(area):
-	if area.is_in_group("main"):
-		anim_tree["parameters/Blend2/blend_amount"] = 1
+	if area.is_in_group(\"main\"):
+		anim_tree[\"parameters/Blend2/blend_amount\"] = 1
 
 func verificar_transformacion(distancia: float) -> void:
 	if distancia >= DISTANCIA_TRANSFORMACION and not transformada:
@@ -55,17 +60,32 @@ func verificar_transformacion(distancia: float) -> void:
 
 func transformarse() -> void:
 	transformada = true
-	anim_tree["parameters/transformación/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+	anim_tree[\"parameters/transformación/request\"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 	dash_Animation (direccion, 120, .5)
 
 
 func regresar_estado_inicial() -> void:
 	transformada = false
-	anim_tree["parameters/Ataque/blend_amount"] = 1
+	anim_tree[\"parameters/Ataque/blend_amount\"] = 1
 	
 	
 func dash_Animation(direccion, incremento, tiempo):
 	var pos_Ini = position
 	var pos_Fin = pos_Ini + Vector2(direccion * incremento, 0)
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "position", pos_Fin, tiempo)
+	tween.tween_property(self, \"position\", pos_Fin, tiempo)
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w5d04"]
+radius = 23.0
+height = 66.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = SubResource("GDScript_sax7h")
+
+[node name="bruja" parent="." instance=ExtResource("1_dvxxt")]
+region_rect = Rect2(94, 62, 47, 63)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 1)
+shape = SubResource("CapsuleShape2D_w5d04")

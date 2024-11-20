@@ -21,7 +21,7 @@ animation = &"transformación"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6fojl"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_44n4k"]
-graph_offset = Vector2(38.4526, -173.105)
+graph_offset = Vector2(-93.0251, -102.175)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_gocim")
 nodes/Animation/position = Vector2(500, 470)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_d7kms")
@@ -41,7 +41,7 @@ node_connections = [&"Ataque", 0, &"walk", &"Ataque", 1, &"Animation 2", &"outpu
 
 [node name="bruja" instance=ExtResource("1_fsr1j")]
 offset = Vector2(6, 1)
-region_rect = Rect2(47, 62, 47, 63)
+region_rect = Rect2(0, 62, 47, 63)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="1"]
 tree_root = SubResource("AnimationNodeBlendTree_44n4k")
