@@ -31,8 +31,8 @@ nodes/output/position = Vector2(453.333, 160)
 node_connections = [&"Ataque", 0, &"Caminar", &"Ataque", 1, &"Animation 3", &"Caminar", 0, &"Animation", &"Caminar", 1, &"Animation 2", &"output", 0, &"Ataque"]
 
 [node name="EnemigoAvanzado" instance=ExtResource("1_hvok5")]
-offset = Vector2(2, 11)
-region_rect = Rect2(225, 91, 115, 89)
+offset = Vector2(2, 10)
+region_rect = Rect2(225, 0, 115, 91)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="1"]
 tree_root = SubResource("AnimationNodeBlendTree_s2xr0")

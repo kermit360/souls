@@ -32,20 +32,16 @@ collide_with_areas = true
 [node name="guerrera3_left" parent="." instance=ExtResource("2_01jj5")]
 visible = false
 position = Vector2(5, -22)
-offset = Vector2(-5, 0)
-region_rect = Rect2(251, 261, 45, 69)
+region_rect = Rect2(437, 261, 47, 66)
 
 [node name="guerrera3" parent="." instance=ExtResource("3_xe76n")]
 visible = false
 position = Vector2(7, -22)
-offset = Vector2(-3, 0)
-region_rect = Rect2(0, 67, 56, 69)
 
 [node name="guerrero_2" parent="." instance=ExtResource("4_fefe7")]
-region_rect = Rect2(320, 141, 54, 66)
+region_rect = Rect2(168, 194, 54, 66)
 
 [node name="guerrero_2L" parent="." instance=ExtResource("5_2htlo")]
 visible = false
 position = Vector2(-10, 0)
-offset = Vector2(3, 0)
-region_rect = Rect2(702, 206, 45, 69)
+region_rect = Rect2(485, 247, 47, 66)
