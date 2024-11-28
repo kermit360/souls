@@ -227,7 +227,7 @@ texture = ExtResource("3_a4o4x")
 stretch_mode = 1
 
 [node name="atacables" type="Node2D" parent="." groups=["brockeable"]]
-position = Vector2(0, -8)
+position = Vector2(0, -16)
 
 [node name="Jarron_Atacable2" parent="atacables" instance=ExtResource("12_8t572")]
 position = Vector2(187, 355)
@@ -331,4 +331,7 @@ tile_set = SubResource("TileSet_f8ftq")
 [node name="Enemigos" type="Node2D" parent="."]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("16_osfys")]
-position = Vector2(93, 331)
+position = Vector2(71, 330)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("16_osfys")]
+position = Vector2(575, 330)

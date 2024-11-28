@@ -21,7 +21,7 @@ animation = &"Camina"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_5so1s"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_vom82"]
-graph_offset = Vector2(-173.216, 13.5708)
+graph_offset = Vector2(-464.173, 168.346)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_yykdx")
 nodes/Animation/position = Vector2(520, 700)
 nodes/Ataque/node = SubResource("AnimationNodeBlend2_k4e26")
@@ -40,7 +40,8 @@ nodes/walk/position = Vector2(360, 260)
 node_connections = [&"Ataque", 0, &"walk", &"Ataque", 1, &"JUMP", &"output", 0, &"transformación", &"transformación", 0, &"Ataque", &"transformación", 1, &"Animation", &"walk", 0, &"IDLE", &"walk", 1, &"WALK"]
 
 [node name="nahual" instance=ExtResource("1_td6k2")]
-region_rect = Rect2(240, 60, 59, 62)
+offset = Vector2(0, 1)
+region_rect = Rect2(172, 125, 58, 58)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="1"]
 tree_root = SubResource("AnimationNodeBlendTree_vom82")

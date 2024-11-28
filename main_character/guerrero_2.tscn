@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bfquvl3mf1i4n"]
+[gd_scene load_steps=37 format=3 uid="uid://bfquvl3mf1i4n"]
 
 [ext_resource type="PackedScene" uid="uid://dnwcw2urt1b7u" path="res://main_character/guerrero_2.ase" id="1_v3u5p"]
 
@@ -11,6 +11,12 @@ animation = &"ATACK"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vkewb"]
 animation = &"ATACK_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i4nm8"]
+animation = &"ATACK_RES"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bpkmc"]
+animation = &"ATACK_RES_2"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w011f"]
 animation = &"CARACOLA"
@@ -56,6 +62,10 @@ animation = &"AIR_UP"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_u48me"]
 
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_yt1wb"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_q1xll"]
+
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_vl2lu"]
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_vn1n5"]
@@ -79,7 +89,7 @@ animation = &"AIR_UP"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_dr6lr"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_4kacf"]
-graph_offset = Vector2(1698.72, -240.045)
+graph_offset = Vector2(1443.22, 694.631)
 nodes/AIR_DOWN/node = SubResource("AnimationNodeBlend2_pawaq")
 nodes/AIR_DOWN/position = Vector2(1180, -340)
 nodes/AIR_UP/node = SubResource("AnimationNodeBlend2_6evcr")
@@ -88,6 +98,10 @@ nodes/ANIM_ATACK/node = SubResource("AnimationNodeAnimation_fcxbd")
 nodes/ANIM_ATACK/position = Vector2(1380, 600)
 nodes/ANIM_ATTACK2/node = SubResource("AnimationNodeAnimation_vkewb")
 nodes/ANIM_ATTACK2/position = Vector2(1540, 680)
+nodes/ANIM_A_RES/node = SubResource("AnimationNodeAnimation_i4nm8")
+nodes/ANIM_A_RES/position = Vector2(2320, 980)
+nodes/ANIM_A_RES_2/node = SubResource("AnimationNodeAnimation_bpkmc")
+nodes/ANIM_A_RES_2/position = Vector2(2500, 1040)
 nodes/ANIM_CARACOLA/node = SubResource("AnimationNodeAnimation_w011f")
 nodes/ANIM_CARACOLA/position = Vector2(1920, 840)
 nodes/ANIM_CROUCH/node = SubResource("AnimationNodeAnimation_35w06")
@@ -118,6 +132,10 @@ nodes/ANIM_UP/node = SubResource("AnimationNodeAnimation_2eac5")
 nodes/ANIM_UP/position = Vector2(820, -260)
 nodes/ATACK/node = SubResource("AnimationNodeOneShot_u48me")
 nodes/ATACK/position = Vector2(1560, 400)
+nodes/ATA_RES/node = SubResource("AnimationNodeOneShot_yt1wb")
+nodes/ATA_RES/position = Vector2(2495.34, 762.854)
+nodes/ATA_RES_2/node = SubResource("AnimationNodeOneShot_q1xll")
+nodes/ATA_RES_2/position = Vector2(2712.86, 919.511)
 nodes/ATTACK2/node = SubResource("AnimationNodeOneShot_vl2lu")
 nodes/ATTACK2/position = Vector2(1740, 480)
 nodes/CARACOLA/node = SubResource("AnimationNodeOneShot_vn1n5")
@@ -141,7 +159,7 @@ nodes/JUMP/position = Vector2(1380, 320)
 nodes/RUN/node = SubResource("AnimationNodeBlend2_dr6lr")
 nodes/RUN/position = Vector2(260, 380)
 nodes/output/position = Vector2(2760, 80)
-node_connections = [&"AIR_DOWN", 0, &"AIR_UP", &"AIR_DOWN", 1, &"ANIM_DOWN", &"AIR_UP", 0, &"CROUCH_MOVE", &"AIR_UP", 1, &"ANIM_UP", &"ATACK", 0, &"JUMP", &"ATACK", 1, &"ANIM_ATACK", &"ATTACK2", 0, &"ATACK", &"ATTACK2", 1, &"ANIM_ATTACK2", &"CARACOLA", 0, &"DEFENSE", &"CARACOLA", 1, &"ANIM_CARACOLA", &"CROUCH", 0, &"CARACOLA", &"CROUCH", 1, &"ANIM_CROUCH", &"CROUCH_IDLE", 0, &"IDLE_DEF", &"CROUCH_IDLE", 1, &"ANIM_CROUCH_IDLE", &"CROUCH_MOVE", 0, &"RUN", &"CROUCH_MOVE", 1, &"ANIM_CROUCH_MOVE", &"DASH", 0, &"AIR_DOWN", &"DASH", 1, &"ANIM_DASH", &"DEAD", 0, &"ANIM_DEAD", &"DEAD", 1, &"CROUCH", &"DEAD", 2, &"ANIM_DEAD_2", &"DEFENSE", 0, &"ATTACK2", &"DEFENSE", 1, &"ANIM_DEFENSE", &"IDLE_DEF", 0, &"ANIM_IDLE", &"IDLE_DEF", 1, &"ANIM_IDLE_DEF", &"JUMP", 0, &"DASH", &"JUMP", 1, &"ANIM_JUMP", &"RUN", 0, &"CROUCH_IDLE", &"RUN", 1, &"ANIM_RUN", &"output", 0, &"DEAD"]
+node_connections = [&"AIR_DOWN", 0, &"AIR_UP", &"AIR_DOWN", 1, &"ANIM_DOWN", &"AIR_UP", 0, &"CROUCH_MOVE", &"AIR_UP", 1, &"ANIM_UP", &"ATACK", 0, &"JUMP", &"ATACK", 1, &"ANIM_ATACK", &"ATA_RES", 0, &"CROUCH", &"ATA_RES", 1, &"ANIM_A_RES", &"ATA_RES_2", 0, &"ATA_RES", &"ATA_RES_2", 1, &"ANIM_A_RES_2", &"ATTACK2", 0, &"ATACK", &"ATTACK2", 1, &"ANIM_ATTACK2", &"CARACOLA", 0, &"DEFENSE", &"CARACOLA", 1, &"ANIM_CARACOLA", &"CROUCH", 0, &"CARACOLA", &"CROUCH", 1, &"ANIM_CROUCH", &"CROUCH_IDLE", 0, &"IDLE_DEF", &"CROUCH_IDLE", 1, &"ANIM_CROUCH_IDLE", &"CROUCH_MOVE", 0, &"RUN", &"CROUCH_MOVE", 1, &"ANIM_CROUCH_MOVE", &"DASH", 0, &"AIR_DOWN", &"DASH", 1, &"ANIM_DASH", &"DEAD", 0, &"ANIM_DEAD", &"DEAD", 1, &"ATA_RES_2", &"DEAD", 2, &"ANIM_DEAD_2", &"DEFENSE", 0, &"ATTACK2", &"DEFENSE", 1, &"ANIM_DEFENSE", &"IDLE_DEF", 0, &"ANIM_IDLE", &"IDLE_DEF", 1, &"ANIM_IDLE_DEF", &"JUMP", 0, &"DASH", &"JUMP", 1, &"ANIM_JUMP", &"RUN", 0, &"CROUCH_IDLE", &"RUN", 1, &"ANIM_RUN", &"output", 0, &"DEAD"]
 
 [node name="guerrero_2" instance=ExtResource("1_v3u5p")]
 offset = Vector2(-3, 1)
@@ -155,6 +173,12 @@ parameters/AIR_UP/blend_amount = 0
 parameters/ATACK/active = false
 parameters/ATACK/internal_active = false
 parameters/ATACK/request = 0
+parameters/ATA_RES/active = false
+parameters/ATA_RES/internal_active = false
+parameters/ATA_RES/request = 0
+parameters/ATA_RES_2/active = false
+parameters/ATA_RES_2/internal_active = false
+parameters/ATA_RES_2/request = 0
 parameters/ATTACK2/active = false
 parameters/ATTACK2/internal_active = false
 parameters/ATTACK2/request = 0

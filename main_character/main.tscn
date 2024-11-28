@@ -1,12 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://c70gvywd5gbh4"]
+[gd_scene load_steps=8 format=3 uid="uid://c70gvywd5gbh4"]
 
 [ext_resource type="Script" path="res://main_character/main.gd" id="1_mue3s"]
+[ext_resource type="Shader" uid="uid://l7xfjf2jagc5" path="res://main_character/main.tres" id="3_gvctk"]
 [ext_resource type="PackedScene" uid="uid://bfquvl3mf1i4n" path="res://main_character/guerrero_2.tscn" id="4_fefe7"]
 [ext_resource type="PackedScene" uid="uid://c218jr2u5yah" path="res://main_character/guerrero_2l.tscn" id="5_2htlo"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k5b7y"]
-radius = 11.0
-height = 68.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6tu7"]
+size = Vector2(20, 57)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f0ur4"]
+shader = ExtResource("3_gvctk")
+shader_parameter/enabled = false
+shader_parameter/ColorParameter = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vc2ai"]
+shader = ExtResource("3_gvctk")
+shader_parameter/enabled = false
+shader_parameter/ColorParameter = Color(1, 1, 1, 1)
 
 [node name="main_char" type="CharacterBody2D" groups=["main"]]
 collision_layer = 5
@@ -22,18 +32,18 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_k5b7y")
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_u6tu7")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(51, 6)
-collision_mask = 2
+collision_mask = 10
 collide_with_areas = true
 
 [node name="guerrero_2" parent="." instance=ExtResource("4_fefe7")]
-region_rect = Rect2(320, 141, 54, 66)
+material = SubResource("ShaderMaterial_f0ur4")
 
 [node name="guerrero_2L" parent="." instance=ExtResource("5_2htlo")]
 visible = false
+material = SubResource("ShaderMaterial_vc2ai")
 position = Vector2(-10, 0)
-offset = Vector2(3, 0)
-region_rect = Rect2(702, 206, 45, 69)
