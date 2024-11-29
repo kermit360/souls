@@ -27,7 +27,7 @@ script = ExtResource("1_mue3s")
 position = Vector2(0, -100)
 limit_left = 0
 limit_top = 0
-limit_bottom = 400
+limit_bottom = 1200
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
@@ -42,8 +42,10 @@ collide_with_areas = true
 
 [node name="guerrero_2" parent="." instance=ExtResource("4_fefe7")]
 material = SubResource("ShaderMaterial_f0ur4")
+region_rect = Rect2(168, 194, 54, 66)
 
 [node name="guerrero_2L" parent="." instance=ExtResource("5_2htlo")]
 visible = false
 material = SubResource("ShaderMaterial_vc2ai")
 position = Vector2(-10, 0)
+region_rect = Rect2(485, 247, 47, 66)
