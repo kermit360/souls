@@ -1,3 +1,4 @@
 res://escena1.tscn
 res://main_character/main.tres
 res://main_character/main.tscn
+res://main_character/main.gd
