@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://dgjxiatkvhesi"]
+
+[ext_resource type="Script" path="res://mago/character_body_2d.gd" id="1_5y6bx"]
+[ext_resource type="PackedScene" uid="uid://bixjwsy08dea5" path="res://mago/mago.tscn" id="1_unu6q"]
+[ext_resource type="AudioStream" uid="uid://c5hdcb5egsp35" path="res://mago/idle.mp3" id="3_m5xpr"]
+[ext_resource type="AudioStream" uid="uid://csbkwl7a17fp7" path="res://main_character/piasadas.mp3" id="4_5o10m"]
+[ext_resource type="AudioStream" uid="uid://cud6fehvt0aqb" path="res://mago/atack.mp3" id="5_def7n"]
+[ext_resource type="AudioStream" uid="uid://cykgv5sy08soe" path="res://main_character/agh.mp3" id="7_jj6ji"]
+[ext_resource type="AudioStream" uid="uid://dvyfxokl5r2ot" path="res://main_character/death.mp3" id="8_0urd0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dbrbs"]
+height = 32.0
+
+[sub_resource type="Gradient" id="Gradient_8xw2m"]
+offsets = PackedFloat32Array(0, 0.741176)
+colors = PackedColorArray(1, 0, 0, 0.8, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xoksh"]
+gradient = SubResource("Gradient_8xw2m")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.222222, 0.230769)
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["Atacable"]]
+collision_layer = 9
+script = ExtResource("1_5y6bx")
+
+[node name="Sprite2D" parent="." instance=ExtResource("1_unu6q")]
+region_rect = Rect2(195, 45, 28, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_dbrbs")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 8)
+target_position = Vector2(20, -3)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+scale = Vector2(1.222, 1.5)
+color = Color(1, 0.4, 0.262745, 0.870588)
+energy = 2.03
+blend_mode = 2
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_xoksh")
+texture_scale = 10.0
+
+[node name="idle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m5xpr")
+max_distance = 250.0
+parameters/looping = true
+
+[node name="walking" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5o10m")
+pitch_scale = 1.87
+max_distance = 250.0
+attenuation = 5.09824
+
+[node name="atack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_def7n")
+max_distance = 250.0
+
+[node name="agh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_jj6ji")
+pitch_scale = 1.57
+max_distance = 250.0
+
+[node name="death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_0urd0")
+pitch_scale = 1.8
+max_distance = 250.0

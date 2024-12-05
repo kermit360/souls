@@ -89,7 +89,6 @@ animation = &"AIR_UP"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_dr6lr"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_4kacf"]
-graph_offset = Vector2(1443.22, 694.631)
 nodes/AIR_DOWN/node = SubResource("AnimationNodeBlend2_pawaq")
 nodes/AIR_DOWN/position = Vector2(1180, -340)
 nodes/AIR_UP/node = SubResource("AnimationNodeBlend2_6evcr")
@@ -162,8 +161,8 @@ nodes/output/position = Vector2(2760, 80)
 node_connections = [&"AIR_DOWN", 0, &"AIR_UP", &"AIR_DOWN", 1, &"ANIM_DOWN", &"AIR_UP", 0, &"CROUCH_MOVE", &"AIR_UP", 1, &"ANIM_UP", &"ATACK", 0, &"JUMP", &"ATACK", 1, &"ANIM_ATACK", &"ATA_RES", 0, &"CROUCH", &"ATA_RES", 1, &"ANIM_A_RES", &"ATA_RES_2", 0, &"ATA_RES", &"ATA_RES_2", 1, &"ANIM_A_RES_2", &"ATTACK2", 0, &"ATACK", &"ATTACK2", 1, &"ANIM_ATTACK2", &"CARACOLA", 0, &"DEFENSE", &"CARACOLA", 1, &"ANIM_CARACOLA", &"CROUCH", 0, &"CARACOLA", &"CROUCH", 1, &"ANIM_CROUCH", &"CROUCH_IDLE", 0, &"IDLE_DEF", &"CROUCH_IDLE", 1, &"ANIM_CROUCH_IDLE", &"CROUCH_MOVE", 0, &"RUN", &"CROUCH_MOVE", 1, &"ANIM_CROUCH_MOVE", &"DASH", 0, &"AIR_DOWN", &"DASH", 1, &"ANIM_DASH", &"DEAD", 0, &"ANIM_DEAD", &"DEAD", 1, &"ATA_RES_2", &"DEAD", 2, &"ANIM_DEAD_2", &"DEFENSE", 0, &"ATTACK2", &"DEFENSE", 1, &"ANIM_DEFENSE", &"IDLE_DEF", 0, &"ANIM_IDLE", &"IDLE_DEF", 1, &"ANIM_IDLE_DEF", &"JUMP", 0, &"DASH", &"JUMP", 1, &"ANIM_JUMP", &"RUN", 0, &"CROUCH_IDLE", &"RUN", 1, &"ANIM_RUN", &"output", 0, &"DEAD"]
 
 [node name="guerrero_2" instance=ExtResource("1_v3u5p")]
-offset = Vector2(-3, 1)
-region_rect = Rect2(461, 194, 54, 66)
+offset = Vector2(-1, 2)
+region_rect = Rect2(365, 0, 62, 73)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="1"]
 tree_root = SubResource("AnimationNodeBlendTree_4kacf")

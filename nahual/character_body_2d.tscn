@@ -1,10 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://c11vacxyrwbt7"]
+[gd_scene load_steps=10 format=3 uid="uid://c11vacxyrwbt7"]
 
 [ext_resource type="PackedScene" uid="uid://c10605lq0nr6p" path="res://nahual/nahual.tscn" id="1_52b43"]
 [ext_resource type="Script" path="res://nahual/character_body_2d.gd" id="1_n4pbw"]
+[ext_resource type="AudioStream" uid="uid://bo604sj48elbm" path="res://nahual/idle.mp3" id="3_rbn71"]
+[ext_resource type="AudioStream" uid="uid://csbkwl7a17fp7" path="res://main_character/piasadas.mp3" id="4_balai"]
+[ext_resource type="AudioStream" uid="uid://dnyymthk3j1rx" path="res://nahual/nahual_ataque2.mp3" id="5_e5bw0"]
+[ext_resource type="AudioStream" uid="uid://b0ipv5aedp3lx" path="res://nahual/agh.mp3" id="6_a2iv7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kjxi"]
 size = Vector2(178.631, 261.094)
+
+[sub_resource type="Gradient" id="Gradient_2poxk"]
+offsets = PackedFloat32Array(0, 0.741176)
+colors = PackedColorArray(1, 0, 0, 0.8, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o7dij"]
+gradient = SubResource("Gradient_2poxk")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.222222, 0.230769)
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["Atacable"]]
 collision_layer = 9
@@ -19,3 +33,39 @@ shape = SubResource("RectangleShape2D_4kjxi")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(30, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+scale = Vector2(1.222, 1.5)
+color = Color(1, 0.4, 0.262745, 0.870588)
+energy = 2.03
+blend_mode = 2
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_o7dij")
+texture_scale = 10.0
+
+[node name="idle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rbn71")
+max_distance = 250.0
+parameters/looping = true
+
+[node name="walking" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_balai")
+pitch_scale = 0.63
+max_distance = 250.0
+attenuation = 5.09824
+
+[node name="atack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_e5bw0")
+max_distance = 250.0
+
+[node name="agh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_a2iv7")
+max_distance = 250.0
+attenuation = 0.217638
+
+[node name="death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_a2iv7")
+volume_db = 8.723
+pitch_scale = 0.43
+max_distance = 250.0

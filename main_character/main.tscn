@@ -1,12 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://c70gvywd5gbh4"]
+[gd_scene load_steps=22 format=3 uid="uid://c70gvywd5gbh4"]
 
 [ext_resource type="Script" path="res://main_character/main.gd" id="1_mue3s"]
 [ext_resource type="Shader" uid="uid://l7xfjf2jagc5" path="res://main_character/main.tres" id="3_gvctk"]
 [ext_resource type="PackedScene" uid="uid://bfquvl3mf1i4n" path="res://main_character/guerrero_2.tscn" id="4_fefe7"]
 [ext_resource type="PackedScene" uid="uid://c218jr2u5yah" path="res://main_character/guerrero_2l.tscn" id="5_2htlo"]
+[ext_resource type="AudioStream" uid="uid://ctoaspqkh4xaw" path="res://main_character/huah.mp3" id="5_mll0e"]
+[ext_resource type="AudioStream" uid="uid://di5dflh6x2pwv" path="res://main_character/piasada.mp3" id="6_w0nhe"]
+[ext_resource type="AudioStream" uid="uid://cmopj3ouplvak" path="res://main_character/lanza_ataque.mp3" id="7_gfa8m"]
+[ext_resource type="AudioStream" uid="uid://cuh7xwiddnvxc" path="res://main_character/slash.mp3" id="8_cstll"]
+[ext_resource type="AudioStream" uid="uid://g0f2yl2ge7gi" path="res://main_character/lanza.mp3" id="9_a6jki"]
+[ext_resource type="AudioStream" uid="uid://csbkwl7a17fp7" path="res://main_character/piasadas.mp3" id="10_60upc"]
+[ext_resource type="AudioStream" uid="uid://bljpngqnn6ta7" path="res://main_character/golpe_escudo.mp3" id="11_hhcwp"]
+[ext_resource type="AudioStream" uid="uid://cykgv5sy08soe" path="res://main_character/agh.mp3" id="12_xc4kn"]
+[ext_resource type="PackedScene" uid="uid://dcv3ldjcy1t55" path="res://ui/ui.tscn" id="13_cpbmd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6tu7"]
-size = Vector2(20, 57)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s8fix"]
+height = 55.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f0ur4"]
 shader = ExtResource("3_gvctk")
@@ -18,6 +27,36 @@ shader = ExtResource("3_gvctk")
 shader_parameter/enabled = false
 shader_parameter/ColorParameter = Color(1, 1, 1, 1)
 
+[sub_resource type="Curve" id="Curve_r2mme"]
+min_value = -578.87
+max_value = 500.7
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.187251, 172.487), 0.0, 0.0, 0, 0, Vector2(0.649402, -116.594), 0.0, 0.0, 0, 0, Vector2(1, 360), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_8len3"]
+curve = SubResource("Curve_r2mme")
+
+[sub_resource type="Gradient" id="Gradient_2abcq"]
+offsets = PackedFloat32Array(0, 0.995516)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 0.670588)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c3mnl"]
+gradient = SubResource("Gradient_2abcq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_44ua5"]
+particle_flag_disable_z = true
+angle_curve = SubResource("CurveTexture_8len3")
+inherit_velocity_ratio = 0.101
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 59.23
+initial_velocity_max = 59.23
+gravity = Vector3(0, 98, 0)
+scale_max = 5.0
+color = Color(1, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_c3mnl")
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 6
+
 [node name="main_char" type="CharacterBody2D" groups=["main"]]
 collision_layer = 5
 collision_mask = 5
@@ -27,13 +66,13 @@ script = ExtResource("1_mue3s")
 position = Vector2(0, -100)
 limit_left = 0
 limit_top = 0
-limit_bottom = 1200
+limit_bottom = 2000
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3.5)
-shape = SubResource("RectangleShape2D_u6tu7")
+shape = SubResource("CapsuleShape2D_s8fix")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(51, 6)
@@ -42,8 +81,49 @@ collide_with_areas = true
 
 [node name="guerrero_2" parent="." instance=ExtResource("4_fefe7")]
 material = SubResource("ShaderMaterial_f0ur4")
+offset = Vector2(-3, 1)
+region_rect = Rect2(320, 141, 54, 66)
 
 [node name="guerrero_2L" parent="." instance=ExtResource("5_2htlo")]
 visible = false
 material = SubResource("ShaderMaterial_vc2ai")
 position = Vector2(-10, 0)
+region_rect = Rect2(607, 253, 47, 66)
+
+[node name="brinco" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_mll0e")
+
+[node name="pisada" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_w0nhe")
+
+[node name="lanza_ataque" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_gfa8m")
+
+[node name="dash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_cstll")
+attenuation = 0.00372529
+
+[node name="lanza" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_a6jki")
+
+[node name="sangr_enem" type="GPUParticles2D" parent="."]
+position = Vector2(52, 6)
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_44ua5")
+lifetime = 0.3
+one_shot = true
+speed_scale = 2.72
+randomness = 0.07
+
+[node name="run" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_60upc")
+
+[node name="escudo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_hhcwp")
+
+[node name="agh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_xc4kn")
+
+[node name="ui" parent="." instance=ExtResource("13_cpbmd")]
+position = Vector2(-103, -50)

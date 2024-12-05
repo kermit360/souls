@@ -21,7 +21,7 @@ animation = &"transformación"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6fojl"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_44n4k"]
-graph_offset = Vector2(-93.0251, -102.175)
+graph_offset = Vector2(-364.831, -91.6526)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_gocim")
 nodes/Animation/position = Vector2(500, 470)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_d7kms")
@@ -46,7 +46,7 @@ region_rect = Rect2(0, 62, 47, 63)
 [node name="AnimationTree" type="AnimationTree" parent="." index="1"]
 tree_root = SubResource("AnimationNodeBlendTree_44n4k")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Ataque/blend_amount = 0
+parameters/Ataque/blend_amount = 0.0
 "parameters/transformación/active" = false
 "parameters/transformación/internal_active" = false
 "parameters/transformación/request" = 0

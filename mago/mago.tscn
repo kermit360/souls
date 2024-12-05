@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://bixjwsy08dea5"]
+
+[ext_resource type="PackedScene" uid="uid://b1udlef4v1n38" path="res://mago/mago.ase" id="1_ik74i"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2vp0e"]
+animation = &"WALK"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g04ub"]
+animation = &"ATACK"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_trme1"]
+animation = &"IDLE"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_02hw4"]
+animation = &"JUMP"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_tl06u"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_n0lvi"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_r4nsk"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rmw7l"]
+graph_offset = Vector2(-615, -24)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_02hw4")
+nodes/Animation/position = Vector2(120, 320)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_2vp0e")
+"nodes/Animation 2/position" = Vector2(-320, 280)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_g04ub")
+"nodes/Animation 3/position" = Vector2(-100, 360)
+"nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_trme1")
+"nodes/Animation 4/position" = Vector2(-380, 100)
+nodes/Ataque/node = SubResource("AnimationNodeBlend2_tl06u")
+nodes/Ataque/position = Vector2(32.2102, 95.0201)
+nodes/output/position = Vector2(500, 120)
+"nodes/transformación/node" = SubResource("AnimationNodeOneShot_n0lvi")
+"nodes/transformación/position" = Vector2(280, 80)
+nodes/walk/node = SubResource("AnimationNodeBlend2_r4nsk")
+nodes/walk/position = Vector2(-143.335, 124.009)
+node_connections = [&"Ataque", 0, &"walk", &"Ataque", 1, &"Animation 3", &"output", 0, &"transformación", &"transformación", 0, &"Ataque", &"transformación", 1, &"Animation", &"walk", 0, &"Animation 4", &"walk", 1, &"Animation 2"]
+
+[node name="mago" instance=ExtResource("1_ik74i")]
+offset = Vector2(-2, 5)
+region_rect = Rect2(226, 42, 28, 40)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="1"]
+tree_root = SubResource("AnimationNodeBlendTree_rmw7l")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Ataque/blend_amount = 0.0
+"parameters/transformación/active" = false
+"parameters/transformación/internal_active" = false
+"parameters/transformación/request" = 0
+parameters/walk/blend_amount = 0.0

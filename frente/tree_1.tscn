@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6kx4l8weg8uo"]
+
+[ext_resource type="Texture2D" uid="uid://c63sl8ywhjtmu" path="res://frente/tree_1.png" id="1_qsrvw"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_e5sy3"]
+polygon = PackedVector2Array(-25.6483, 82.2547, -1.83775, 73.0551, -3.46119, 7.57609, -4.54349, -17.8579, -5.08464, -25.9752, -9.41383, -25.9752, -10.4961, -21.646, -21.8603, -17.8579, -33.7655, -20.0225, -35.389, -31.3866, -31.6009, -45.4565, -22.9426, -54.656, -28.354, -54.656, -27.2717, -74.1374, -29.4363, -88.2073, -11.0373, -96.8657, 7.90294, -88.2073, 36.0427, -85.5015, 38.7484, -73.0551, 34.4192, -60.6087, 43.0776, -44.3742, 37.125, -28.1397, 30.09, -25.9752, 16.0202, -28.1397, 8.98523, -28.6809, 3.57375, -18.9402, 4.11489, 27.0574, 6.82064, 73.0551, 19.2671, 82.2547, 28.4666, 86.0427, 18.1848, 96.3245, -1.2966, 95.2422, -25.6483, 90.913, -32.6832, 84.4193)
+
+[node name="Tree1" type="Sprite2D"]
+position = Vector2(101.396, 201)
+scale = Vector2(1.84792, 1.84792)
+texture = ExtResource("1_qsrvw")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_e5sy3")

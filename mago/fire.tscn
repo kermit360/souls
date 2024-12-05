@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://bf5to3370p7nw"]
+
+[ext_resource type="PackedScene" uid="uid://cb6q574g8mjym" path="res://jarron/fire.ase" id="1_vlwvc"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o1rlx"]
+animation = &"ACTIVE"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gvfe3"]
+animation = &"FADE_OUT"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kmdb1"]
+animation = &"FADE_IN"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_lr4kh"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_jcisg"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_4ag1d"]
+graph_offset = Vector2(520.643, 128.851)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_kmdb1")
+nodes/Animation/position = Vector2(820, 340)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_o1rlx")
+"nodes/Animation 2/position" = Vector2(780, 140)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_gvfe3")
+"nodes/Animation 3/position" = Vector2(1020, 440)
+nodes/fade_in/node = SubResource("AnimationNodeOneShot_lr4kh")
+nodes/fade_in/position = Vector2(1020, 160)
+nodes/fade_out/node = SubResource("AnimationNodeOneShot_jcisg")
+nodes/fade_out/position = Vector2(1193.39, 265.734)
+nodes/output/position = Vector2(1380, 240)
+node_connections = [&"fade_in", 0, &"Animation 2", &"fade_in", 1, &"Animation", &"fade_out", 0, &"fade_in", &"fade_out", 1, &"Animation 3", &"output", 0, &"fade_out"]
+
+[node name="fire" instance=ExtResource("1_vlwvc")]
+offset = Vector2(1, 2)
+region_rect = Rect2(0, 47, 17, 20)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="1"]
+tree_root = SubResource("AnimationNodeBlendTree_4ag1d")
+anim_player = NodePath("../AnimationPlayer")
+parameters/fade_in/active = false
+parameters/fade_in/internal_active = false
+parameters/fade_in/request = 0
+parameters/fade_out/active = false
+parameters/fade_out/internal_active = false
+parameters/fade_out/request = 0

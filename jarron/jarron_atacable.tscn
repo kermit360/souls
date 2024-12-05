@@ -1,10 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://bm12ymqfhhl7"]
+[gd_scene load_steps=14 format=3 uid="uid://bm12ymqfhhl7"]
 
 [ext_resource type="Script" path="res://jarron/jarron_atacable.gd" id="1_k05uy"]
 [ext_resource type="PackedScene" uid="uid://bygne37hbx8i" path="res://jarron/jarron.tscn" id="2_0qtcs"]
+[ext_resource type="PackedScene" uid="uid://bf5to3370p7nw" path="res://mago/fire.tscn" id="3_jeedg"]
+[ext_resource type="AudioStream" uid="uid://cibg4v2v4eigl" path="res://jarron/smash.mp3" id="4_5gpav"]
+[ext_resource type="AudioStream" uid="uid://bsglhcaj3miqj" path="res://jarron/recoleccion.mp3" id="5_3t6c7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_af46y"]
 radius = 13.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eyyg5"]
+particles_animation = true
+particles_anim_h_frames = 16
+particles_anim_v_frames = 16
+particles_anim_loop = true
+
+[sub_resource type="Gradient" id="Gradient_loy12"]
+colors = PackedColorArray(0, 1, 1, 0.607843, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_traui"]
+gradient = SubResource("Gradient_loy12")
+fill = 1
+fill_from = Vector2(0.504274, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_m6kwv"]
+offsets = PackedFloat32Array(0, 0.293194, 0.361257, 0.465969, 0.602094, 0.994764)
+colors = PackedColorArray(0, 0.286275, 1, 0.878431, 1, 1, 1, 0.376471, 0.59673, 0.332301, 0.431098, 0.611765, 0.392383, 0.593575, 0.506397, 0.542711, 0.0745098, 1, 0.623529, 0.435294, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g5msw"]
+gradient = SubResource("Gradient_m6kwv")
+fill = 1
+fill_from = Vector2(0.504274, 0.470085)
+fill_to = Vector2(0.213675, 0.217949)
+
+[sub_resource type="Gradient" id="Gradient_w2o5a"]
+resource_local_to_scene = true
+colors = PackedColorArray(1, 0.682353, 0, 0.141176, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0iylq"]
+gradient = SubResource("Gradient_w2o5a")
+fill = 1
+fill_from = Vector2(0.529915, 0.504274)
+fill_to = Vector2(0.0769231, 0.739316)
 
 [node name="Jarron_Atacable" type="StaticBody2D" groups=["Atacable"]]
 collision_layer = 2
@@ -14,4 +51,43 @@ script = ExtResource("1_k05uy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_af46y")
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_eyyg5")
+color = Color(0, 0.113725, 1, 0.560784)
+energy = 4.6
+texture = SubResource("GradientTexture2D_traui")
+
+[node name="glow_fire" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 6)
+scale = Vector2(0.7, 0.7)
+texture = SubResource("GradientTexture2D_g5msw")
+
+[node name="fire" parent="." instance=ExtResource("3_jeedg")]
+visible = false
+offset = Vector2(0, 1)
+region_rect = Rect2(17, 46, 15, 23)
+
+[node name="glow_jarron" type="Sprite2D" parent="."]
+position = Vector2(-2, 0)
+texture = SubResource("GradientTexture2D_0iylq")
+
 [node name="Jarron" parent="." instance=ExtResource("2_0qtcs")]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(0.5, 0)
+scale = Vector2(1.125, 1)
+color = Color(0.215686, 0.0980392, 0.164706, 1)
+polygon = PackedVector2Array(-5, 15, -10, 16, -12, 18, 12, 18, 8.44444, 16, 5, 15)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 18)
+target_position = Vector2(0, -18)
+
+[node name="smash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5gpav")
+
+[node name="recoleccion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_3t6c7")
+attenuation = 2.63902

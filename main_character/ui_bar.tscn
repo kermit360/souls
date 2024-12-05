@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0j1fpi32yv2l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nca7q"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rrym8"]
+bg_color = Color(0.712726, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80kwa"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5n4w1"]
+bg_color = Color(0.811765, 0.831373, 0, 1)
+
+[node name="ui_bar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 2
+
+[node name="vida" type="ProgressBar" parent="."]
+layout_mode = 1
+offset_right = 300.0
+offset_bottom = 4.0
+theme_override_styles/background = SubResource("StyleBoxFlat_nca7q")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rrym8")
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
+[node name="estamina" type="ProgressBar" parent="."]
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 2.0
+theme_override_styles/background = SubResource("StyleBoxFlat_80kwa")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5n4w1")
+max_value = 5.0
+value = 5.0
+show_percentage = false

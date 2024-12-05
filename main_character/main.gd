@@ -8,6 +8,15 @@ extends CharacterBody2D
 @onready var spriteR: Sprite2D = $guerrero_2
 @onready var spriteL: Sprite2D = $guerrero_2L
 
+@onready var sangr_enem: GPUParticles2D = $sangr_enem
+
+
+var sangr_enem_loc = 0
+
+
+var dash_cooldown_timer: float = 0.0
+const DASH_COOLDOWN: float = 5.0
+
 
 # Logica Animaciones
 enum {
@@ -27,7 +36,9 @@ var objeto_Atacado = null
 var sprite_material = null
 
 #Logica Vida
-var vida : float = 10.0
+const vida_Ori = 10.0
+var vida = vida_Ori
+
 var ultimo_Ataque_Left = true
 enum {
 	vivo, moribundo, muerto
@@ -36,12 +47,16 @@ var current_Live_State = vivo
 var ataque_Recibido = 0
 
 
+
 func _ready() -> void:
 	sprite_material = spriteR.material
+	sangr_enem_loc = sangr_enem.position.x
 
-func _process(_delta):
+func _process(delta):
 	Animation_Handler()
 	Dead_Handler()
+	if dash_cooldown_timer > 0:
+		dash_cooldown_timer -= delta
 
 
 
@@ -52,6 +67,7 @@ func _physics_process(delta: float) -> void:
 
 	#salto
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not CROUCHED:
+		$brinco.play()
 		anim_treeR["parameters/JUMP/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 		anim_treeL["parameters/JUMP/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 		await get_tree().create_timer(0.5).timeout
@@ -73,6 +89,10 @@ func _physics_process(delta: float) -> void:
 			objeto_Atacado = spear.get_collider()
 			if objeto_Atacado.is_in_group("Atacable"):
 				objeto_Atacado.set_Atacado(true)
+				sangr_enem.emitting = true
+				$lanza_ataque.play()
+		else:
+			$lanza.play()
 
 	#defensa
 	if Input.is_action_just_pressed("defend") and not CROUCHED:
@@ -94,36 +114,56 @@ func _physics_process(delta: float) -> void:
 		SPEED = 200
 
 	# dash
-	if Input.is_action_just_pressed("dash") and not CROUCHED and not current_Live_State == muerto:
+	if Input.is_action_just_pressed("dash") and not CROUCHED and not current_Live_State == muerto and dash_cooldown_timer <= 0:
+		$dash.play()
 		anim_treeR["parameters/DASH/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 		anim_treeL["parameters/DASH/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 		dash_Animation(ultima_Direccion, 120, .5)
+		dash_cooldown_timer = DASH_COOLDOWN
+	
+	if Input.is_action_just_released("dash"):
+		pass
 		
 	if direction != 0 and current_Live_State != muerto:
 		ultima_Direccion = direction
 		velocity.x = direction * SPEED
+		
 		if direction < 0:
 			$guerrero_2L.visible = true
 			$guerrero_2.visible = false
 			$RayCast2D.target_position.x = -51
 			sprite_material = spriteL.material
+			sangr_enem.position.x = -sangr_enem_loc
+			
 		else:
 			$guerrero_2L.visible = false
 			$guerrero_2.visible = true
 			$RayCast2D.target_position.x = 51
 			sprite_material = spriteR.material
+			sangr_enem.position.x = sangr_enem_loc
+			
+
+			
+			
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	#suelo
 	if is_on_floor():
 		if velocity.x != 0:
 			current_animation = RUN
+			if not $run.playing:
+				$run.play()
+			
 		else:
+			if $run.playing:
+				$run.stop()
 			current_animation = IDLE
 			if Input.is_action_pressed("defend") and not CROUCHED:
 				current_animation = IDLE_DEF
 	#aire
 	else:
+		if $run.playing:
+			$run.stop()
 		if velocity.y>0:
 			current_animation = ANIM_DOWN
 		else:
@@ -264,8 +304,13 @@ func dash_Animation(direccion, incremento, tiempo):
 	tween.tween_property(self, "position", pos_Fin, tiempo)
 
 func dano_Recibido(dano, direccion_Ataque):
+	if current_animation==IDLE_DEF and not current_Live_State == muerto and dano>0:
+		$escudo.play()
+		dash_Animation(direccion_Ataque, 3, .1)
+		
 	if not current_animation == IDLE_DEF and not current_Live_State == muerto:
 		if dano>0:
+			$agh.play()
 			sprite_material.set_shader_parameter("enabled", true)
 			dash_Animation(direccion_Ataque, 5, .2)
 			if direccion_Ataque * ultima_Direccion > 0:
@@ -285,3 +330,7 @@ func dano_Recibido(dano, direccion_Ataque):
 			ultimo_Ataque_Left = false
 		else:
 			ultimo_Ataque_Left = true
+
+func set_Vida_Recuperada(cantidad):
+	vida += cantidad
+	print("vida +", cantidad)
